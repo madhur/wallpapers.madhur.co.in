@@ -20,15 +20,17 @@ def generate_html():
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Madhur's Wallpaper Gallery</title>
-         <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'G-XXXXXXXXXX');
-        </script>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EWPKDCPRNG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EWPKDCPRNG');
+</script>
+
         <style>
             body { 
                 font-family: Arial, sans-serif; 
@@ -123,6 +125,7 @@ def generate_html():
         </style>
     </head>
     <body>
+
     
   <div class="github-ribbon">
             <a href="https://github.com/madhur/wallpapers">Fork me on GitHub</a>
