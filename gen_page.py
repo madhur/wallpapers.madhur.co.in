@@ -128,7 +128,7 @@ def generate_html():
 
     
   <div class="github-ribbon">
-            <a href="https://github.com/madhur/wallpapers">Fork me on GitHub</a>
+            <a href="https://github.com/madhur/wallpapers.madhur.co.in">Fork me on GitHub</a>
         </div>
         <h1>Wallpaper Gallery</h1>
         <div class="switch">
