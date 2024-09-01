@@ -205,7 +205,7 @@ def generate_html():
     </html>
     '''
 
-    with open('wallpaper_gallery.html', 'w') as f:
+    with open('index.html', 'w') as f:
         f.write(html_content)
 
 if __name__ == "__main__":
