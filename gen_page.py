@@ -141,7 +141,7 @@ def generate_html():
         content = f'<div id="{gallery_id}" class="gallery-container">'
         for folder in folders:
             content += f'<h2>{folder.split("/")[-1].capitalize()}</h2><div class="gallery">'
-            for image_path in glob.glob(f'{folder}/*.jpg') + glob.glob(f'{folder}/*.png') + glob.glob(f'{folder}/*.webp'):
+            for image_path in glob.glob(f'{folder}/*.jpg') + glob.glob(f'{folder}/*.png') + glob.glob(f'{folder}/*.webp') + glob.glob(f'{folder}/*.jpeg'):
                 thumbnail_path = os.path.join(thumbnail_dir, f'thumb_{os.path.basename(image_path)}')
                 with Image.open(image_path) as img:
                     if is_vertical:
