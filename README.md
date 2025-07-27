@@ -1,4 +1,4 @@
-# Wallpapers Collection
+# Wallpapers Collection 
 
 Welcome to my wallpapers collection! This repository hosts a curated selection of high-quality wallpapers which I use on my personal computer.
 
