@@ -8,10 +8,9 @@ def generate_html():
     vertical_folders = ['vertical/morning', 'vertical/day', 'vertical/evening', 'vertical/night', 'vertical/midnight']
     thumbnail_dir = 'thumbnails'
     
-    # Create thumbnails directory if it doesn't exist
-    if os.path.exists(thumbnail_dir):
-        shutil.rmtree(thumbnail_dir)
-    os.makedirs(thumbnail_dir)
+    # Create thumbnails directory if it doesn't exist (but don't delete existing thumbnails)
+    if not os.path.exists(thumbnail_dir):
+        os.makedirs(thumbnail_dir)
 
     html_content = '''
     <!DOCTYPE html>
@@ -204,8 +203,23 @@ def generate_html():
                 return ""
         return ""
 
+    def should_regenerate_thumbnail(image_path, thumbnail_path):
+        """Check if thumbnail needs to be regenerated based on modification times"""
+        if not os.path.exists(thumbnail_path):
+            return True
+        
+        try:
+            image_mtime = os.path.getmtime(image_path)
+            thumbnail_mtime = os.path.getmtime(thumbnail_path)
+            return image_mtime > thumbnail_mtime
+        except OSError:
+            return True
+
     def process_folders(folders, gallery_id, is_vertical=False):
         content = f'<div id="{gallery_id}" class="gallery-container">'
+        thumbnails_created = 0
+        thumbnails_skipped = 0
+        
         for folder in folders:
             content += f'<h2>{folder.split("/")[-1].capitalize()}</h2><div class="gallery">'
             
@@ -218,18 +232,29 @@ def generate_html():
             for image_path in image_files:
                 thumbnail_path = os.path.join(thumbnail_dir, f'thumb_{os.path.basename(image_path)}')
                 
-                # Create thumbnail
-                with Image.open(image_path) as img:
-                    if is_vertical:
-                        img.thumbnail((100, 178))  # Increased thumbnail size for vertical images
-                    else:
-                        img.thumbnail((200, 112))
-                    if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
-                        img = img.convert('RGBA')
-                        img.save(thumbnail_path, "PNG")
-                    else:
-                        img = img.convert('RGB')
-                        img.save(thumbnail_path, "JPEG", quality=85)
+                # Only create thumbnail if it doesn't exist or if the original image is newer
+                if should_regenerate_thumbnail(image_path, thumbnail_path):
+                    try:
+                        # Create thumbnail
+                        with Image.open(image_path) as img:
+                            if is_vertical:
+                                img.thumbnail((100, 178))  # Increased thumbnail size for vertical images
+                            else:
+                                img.thumbnail((200, 112))
+                            if img.mode in ('RGBA', 'LA') or (img.mode == 'P' and 'transparency' in img.info):
+                                img = img.convert('RGBA')
+                                img.save(thumbnail_path, "PNG")
+                            else:
+                                img = img.convert('RGB')
+                                img.save(thumbnail_path, "JPEG", quality=85)
+                        
+                        print(f"Created thumbnail: {thumbnail_path}")
+                        thumbnails_created += 1
+                    except Exception as e:
+                        print(f"Error creating thumbnail for {image_path}: {e}")
+                        continue
+                else:
+                    thumbnails_skipped += 1
                 
                 # Get description if available
                 description = get_image_description(image_path)
@@ -251,6 +276,8 @@ def generate_html():
                          onclick="openFullscreen('{image_path}')">
                     '''
             content += '</div>'
+        
+        print(f"Gallery '{gallery_id}': {thumbnails_created} thumbnails created, {thumbnails_skipped} thumbnails skipped")
         content += '</div>'
         return content
 
