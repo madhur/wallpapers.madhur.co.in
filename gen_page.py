@@ -48,11 +48,61 @@ def generate_html():
                 cursor: pointer; 
                 border: 2px solid #333;
                 transition: border-color 0.3s ease;
+                position: relative;
             }
             .thumbnail:hover {
                 border-color: #4CAF50;
             }
             .thumbnail.vertical { width: 100px; height: 178px; } /* Increased size for vertical thumbnails */
+            
+            /* Tooltip styles */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 250px;
+                background-color: rgba(0, 0, 0, 0.9);
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 8px;
+                position: absolute;
+                z-index: 1000;
+                bottom: 125%;
+                left: 50%;
+                margin-left: -125px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 12px;
+                line-height: 1.4;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+            }
+            
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+            
+            /* Adjust tooltip for vertical images */
+            .tooltip.vertical .tooltiptext {
+                width: 200px;
+                margin-left: -100px;
+            }
+            
             .fullscreen { 
                 display: none; 
                 position: fixed; 
@@ -102,7 +152,7 @@ def generate_html():
                 background-color: #4CAF50 !important; 
                 color: white; 
             }
-                    .github-ribbon {
+            .github-ribbon {
                 position: fixed;
                 top: 0;
                 right: 0;
@@ -137,12 +187,38 @@ def generate_html():
         </div>
     '''
 
+    def get_image_description(image_path):
+        """Get description from corresponding txt file if it exists"""
+        base_name = os.path.splitext(image_path)[0]
+        txt_path = f"{base_name}.txt"
+        
+        if os.path.exists(txt_path):
+            try:
+                with open(txt_path, 'r', encoding='utf-8') as f:
+                    description = f.read().strip()
+                    # Escape quotes and newlines for HTML
+                    description = description.replace('"', '&quot;').replace('\n', '<br>')
+                    return description
+            except Exception as e:
+                print(f"Error reading {txt_path}: {e}")
+                return ""
+        return ""
+
     def process_folders(folders, gallery_id, is_vertical=False):
         content = f'<div id="{gallery_id}" class="gallery-container">'
         for folder in folders:
             content += f'<h2>{folder.split("/")[-1].capitalize()}</h2><div class="gallery">'
-            for image_path in glob.glob(f'{folder}/*.jpg') + glob.glob(f'{folder}/*.png') + glob.glob(f'{folder}/*.webp') + glob.glob(f'{folder}/*.jpeg'):
+            
+            # Get all image files
+            image_extensions = ['*.jpg', '*.png', '*.webp', '*.jpeg']
+            image_files = []
+            for ext in image_extensions:
+                image_files.extend(glob.glob(f'{folder}/{ext}'))
+            
+            for image_path in image_files:
                 thumbnail_path = os.path.join(thumbnail_dir, f'thumb_{os.path.basename(image_path)}')
+                
+                # Create thumbnail
                 with Image.open(image_path) as img:
                     if is_vertical:
                         img.thumbnail((100, 178))  # Increased thumbnail size for vertical images
@@ -155,11 +231,25 @@ def generate_html():
                         img = img.convert('RGB')
                         img.save(thumbnail_path, "JPEG", quality=85)
                 
+                # Get description if available
+                description = get_image_description(image_path)
+                
                 thumbnail_class = "thumbnail vertical" if is_vertical else "thumbnail"
-                content += f'''
-                <img src="{thumbnail_path}" alt="{os.path.basename(image_path)}" class="{thumbnail_class}" 
-                     onclick="openFullscreen('{image_path}')">
-                '''
+                tooltip_class = "tooltip vertical" if is_vertical else "tooltip"
+                
+                if description:
+                    content += f'''
+                    <div class="{tooltip_class}">
+                        <img src="{thumbnail_path}" alt="{os.path.basename(image_path)}" class="{thumbnail_class}" 
+                             onclick="openFullscreen('{image_path}')">
+                        <span class="tooltiptext">{description}</span>
+                    </div>
+                    '''
+                else:
+                    content += f'''
+                    <img src="{thumbnail_path}" alt="{os.path.basename(image_path)}" class="{thumbnail_class}" 
+                         onclick="openFullscreen('{image_path}')">
+                    '''
             content += '</div>'
         content += '</div>'
         return content
