@@ -33,11 +33,61 @@
                 cursor: pointer; 
                 border: 2px solid #333;
                 transition: border-color 0.3s ease;
+                position: relative;
             }
             .thumbnail:hover {
                 border-color: #4CAF50;
             }
             .thumbnail.vertical { width: 100px; height: 178px; } /* Increased size for vertical thumbnails */
+            
+            /* Tooltip styles */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+            }
+            
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 250px;
+                background-color: rgba(0, 0, 0, 0.9);
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 8px;
+                position: absolute;
+                z-index: 1000;
+                bottom: 125%;
+                left: 50%;
+                margin-left: -125px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                font-size: 12px;
+                line-height: 1.4;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+            }
+            
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+            
+            /* Adjust tooltip for vertical images */
+            .tooltip.vertical .tooltiptext {
+                width: 200px;
+                margin-left: -100px;
+            }
+            
             .fullscreen { 
                 display: none; 
                 position: fixed; 
@@ -87,7 +137,7 @@
                 background-color: #4CAF50 !important; 
                 color: white; 
             }
-                    .github-ribbon {
+            .github-ribbon {
                 position: fixed;
                 top: 0;
                 right: 0;
@@ -121,654 +171,1857 @@
             <button onclick="showGallery('vertical')" id="verticalBtn">Vertical</button>
         </div>
     <div id="horizontalGallery" class="gallery-container"><h2>Morning</h2><div class="gallery">
-                <img src="thumbnails/thumb_v1tzz5pufk0b1.jpg" alt="v1tzz5pufk0b1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('morning/v1tzz5pufk0b1.jpg')">
-                
-                <img src="thumbnails/thumb_gruv-forest.jpg" alt="gruv-forest.jpg" class="thumbnail" 
-                     onclick="openFullscreen('morning/gruv-forest.jpg')">
-                
-                <img src="thumbnails/thumb_500pllhyaf3b1.jpg" alt="500pllhyaf3b1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('morning/500pllhyaf3b1.jpg')">
-                
-                <img src="thumbnails/thumb_54ssr0ya4mc91.jpg" alt="54ssr0ya4mc91.jpg" class="thumbnail" 
-                     onclick="openFullscreen('morning/54ssr0ya4mc91.jpg')">
-                
-                <img src="thumbnails/thumb_2wogo830o3jc1.png" alt="2wogo830o3jc1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/2wogo830o3jc1.png')">
-                
-                <img src="thumbnails/thumb_emzka1wnfaga1.png" alt="emzka1wnfaga1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/emzka1wnfaga1.png')">
-                
-                <img src="thumbnails/thumb_dark.png" alt="dark.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/dark.png')">
-                
-                <img src="thumbnails/thumb_a8jxcwl2gjfe1.png" alt="a8jxcwl2gjfe1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/a8jxcwl2gjfe1.png')">
-                
-                <img src="thumbnails/thumb_ide4apeaqljc1.png" alt="ide4apeaqljc1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/ide4apeaqljc1.png')">
-                
-                <img src="thumbnails/thumb_wallpaper_102.png" alt="wallpaper_102.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/wallpaper_102.png')">
-                
-                <img src="thumbnails/thumb_cnjotgj448mb1.png" alt="cnjotgj448mb1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/cnjotgj448mb1.png')">
-                
-                <img src="thumbnails/thumb_6rlfscem0h4d1.png" alt="6rlfscem0h4d1.png" class="thumbnail" 
-                     onclick="openFullscreen('morning/6rlfscem0h4d1.png')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_5q3suutz8zge1.jpeg" alt="5q3suutz8zge1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/5q3suutz8zge1.jpeg')">
-                
-                <img src="thumbnails/thumb_xulq7wx8m0cc1.jpeg" alt="xulq7wx8m0cc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/xulq7wx8m0cc1.jpeg')">
-                
-                <img src="thumbnails/thumb_n3VQy4Z.jpeg" alt="n3VQy4Z.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/n3VQy4Z.jpeg')">
-                
-                <img src="thumbnails/thumb_gcjhj74zde8c1.jpeg" alt="gcjhj74zde8c1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/gcjhj74zde8c1.jpeg')">
-                
-                <img src="thumbnails/thumb_p2qm9ksnvi2f1.jpeg" alt="p2qm9ksnvi2f1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/p2qm9ksnvi2f1.jpeg')">
-                
-                <img src="thumbnails/thumb_lroq5q9hm2ge1.jpeg" alt="lroq5q9hm2ge1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/lroq5q9hm2ge1.jpeg')">
-                
-                <img src="thumbnails/thumb_643p9n0as1ce1.jpeg" alt="643p9n0as1ce1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/643p9n0as1ce1.jpeg')">
-                
-                <img src="thumbnails/thumb_uk4b6nixh46e1.jpeg" alt="uk4b6nixh46e1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('morning/uk4b6nixh46e1.jpeg')">
-                </div><h2>Day</h2><div class="gallery">
-                <img src="thumbnails/thumb_mfujmi98fnua1.jpg" alt="mfujmi98fnua1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/mfujmi98fnua1.jpg')">
-                
-                <img src="thumbnails/thumb_forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg" alt="forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg')">
-                
-                <img src="thumbnails/thumb_hvgx5dbgnisa1.jpg" alt="hvgx5dbgnisa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/hvgx5dbgnisa1.jpg')">
-                
-                <img src="thumbnails/thumb_road-2.jpg" alt="road-2.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/road-2.jpg')">
-                
-                <img src="thumbnails/thumb_vkx6mqcgcqsa1.jpg" alt="vkx6mqcgcqsa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/vkx6mqcgcqsa1.jpg')">
-                
-                <img src="thumbnails/thumb_0uu591x88rca1.jpg" alt="0uu591x88rca1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/0uu591x88rca1.jpg')">
-                
-                <img src="thumbnails/thumb_wallpaper.jpg" alt="wallpaper.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/wallpaper.jpg')">
-                
-                <img src="thumbnails/thumb_j1ea3bv9wgxa1.jpg" alt="j1ea3bv9wgxa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/j1ea3bv9wgxa1.jpg')">
-                
-                <img src="thumbnails/thumb_dowprzuij78a1.jpg" alt="dowprzuij78a1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/dowprzuij78a1.jpg')">
-                
-                <img src="thumbnails/thumb_backiee-87092-landscape.jpg" alt="backiee-87092-landscape.jpg" class="thumbnail" 
-                     onclick="openFullscreen('day/backiee-87092-landscape.jpg')">
-                
-                <img src="thumbnails/thumb_0n6nclqhz2wa1.png" alt="0n6nclqhz2wa1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/0n6nclqhz2wa1.png')">
-                
-                <img src="thumbnails/thumb_x0wuhi055dte1.png" alt="x0wuhi055dte1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/x0wuhi055dte1.png')">
-                
-                <img src="thumbnails/thumb_e4msgweqz90f1.png" alt="e4msgweqz90f1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/e4msgweqz90f1.png')">
-                
-                <img src="thumbnails/thumb_18m2zuycgvtc1.png" alt="18m2zuycgvtc1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/18m2zuycgvtc1.png')">
-                
-                <img src="thumbnails/thumb_cp4f7dncrgxb1.png" alt="cp4f7dncrgxb1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/cp4f7dncrgxb1.png')">
-                
-                <img src="thumbnails/thumb_wallpaper_102.png" alt="wallpaper_102.png" class="thumbnail" 
-                     onclick="openFullscreen('day/wallpaper_102.png')">
-                
-                <img src="thumbnails/thumb_l2u5b2zpfyqd1.png" alt="l2u5b2zpfyqd1.png" class="thumbnail" 
-                     onclick="openFullscreen('day/l2u5b2zpfyqd1.png')">
-                
-                <img src="thumbnails/thumb_6x7ohznq2f6d1.jpeg" alt="6x7ohznq2f6d1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('day/6x7ohznq2f6d1.jpeg')">
-                
-                <img src="thumbnails/thumb_gmfw2njxnv0f1.jpeg" alt="gmfw2njxnv0f1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('day/gmfw2njxnv0f1.jpeg')">
-                
-                <img src="thumbnails/thumb_g9d3o4yldxwe1.jpeg" alt="g9d3o4yldxwe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('day/g9d3o4yldxwe1.jpeg')">
-                </div><h2>Evening</h2><div class="gallery">
-                <img src="thumbnails/thumb_wallhaven-x8gkpo.jpg" alt="wallhaven-x8gkpo.jpg" class="thumbnail" 
-                     onclick="openFullscreen('evening/wallhaven-x8gkpo.jpg')">
-                
-                <img src="thumbnails/thumb_road.jpg" alt="road.jpg" class="thumbnail" 
-                     onclick="openFullscreen('evening/road.jpg')">
-                
-                <img src="thumbnails/thumb_forest-4.jpg" alt="forest-4.jpg" class="thumbnail" 
-                     onclick="openFullscreen('evening/forest-4.jpg')">
-                
-                <img src="thumbnails/thumb_wallhaven-kx5v57.jpg" alt="wallhaven-kx5v57.jpg" class="thumbnail" 
-                     onclick="openFullscreen('evening/wallhaven-kx5v57.jpg')">
-                
-                <img src="thumbnails/thumb_cgtga5ms3aqe1.png" alt="cgtga5ms3aqe1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/cgtga5ms3aqe1.png')">
-                
-                <img src="thumbnails/thumb_888g4q4to56d1.png" alt="888g4q4to56d1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/888g4q4to56d1.png')">
-                
-                <img src="thumbnails/thumb_ptp9g3qormme1.png" alt="ptp9g3qormme1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/ptp9g3qormme1.png')">
-                
-                <img src="thumbnails/thumb_c0xk0ruwe2je1.png" alt="c0xk0ruwe2je1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/c0xk0ruwe2je1.png')">
-                
-                <img src="thumbnails/thumb_messy-computer-room-v0-5meg1crcnwhc1.png" alt="messy-computer-room-v0-5meg1crcnwhc1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/messy-computer-room-v0-5meg1crcnwhc1.png')">
-                
-                <img src="thumbnails/thumb_b9phh4kprpne1.png" alt="b9phh4kprpne1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/b9phh4kprpne1.png')">
-                
-                <img src="thumbnails/thumb_Fuji-Dark.png" alt="Fuji-Dark.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/Fuji-Dark.png')">
-                
-                <img src="thumbnails/thumb_Study-table.png" alt="Study-table.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/Study-table.png')">
-                
-                <img src="thumbnails/thumb_Sunset-room.png" alt="Sunset-room.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/Sunset-room.png')">
-                
-                <img src="thumbnails/thumb_kb3hn5boh1xe1.png" alt="kb3hn5boh1xe1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/kb3hn5boh1xe1.png')">
-                
-                <img src="thumbnails/thumb_abfpdxfgz91f1.png" alt="abfpdxfgz91f1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/abfpdxfgz91f1.png')">
-                
-                <img src="thumbnails/thumb_7vzss3iwq0me1.png" alt="7vzss3iwq0me1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/7vzss3iwq0me1.png')">
-                
-                <img src="thumbnails/thumb_luvaqiv550ld1.png" alt="luvaqiv550ld1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/luvaqiv550ld1.png')">
-                
-                <img src="thumbnails/thumb_dt9xnkxbu5ge1.png" alt="dt9xnkxbu5ge1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/dt9xnkxbu5ge1.png')">
-                
-                <img src="thumbnails/thumb_n2ebqg5qjkse1.png" alt="n2ebqg5qjkse1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/n2ebqg5qjkse1.png')">
-                
-                <img src="thumbnails/thumb_xx1kv3ogqmze1.png" alt="xx1kv3ogqmze1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/xx1kv3ogqmze1.png')">
-                
-                <img src="thumbnails/thumb_29kea6wnffke1.png" alt="29kea6wnffke1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/29kea6wnffke1.png')">
-                
-                <img src="thumbnails/thumb_5b40ysqfwnie1.png" alt="5b40ysqfwnie1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/5b40ysqfwnie1.png')">
-                
-                <img src="thumbnails/thumb_vagyjlpmrcge1.png" alt="vagyjlpmrcge1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/vagyjlpmrcge1.png')">
-                
-                <img src="thumbnails/thumb_gecs2l21zq6d1.png" alt="gecs2l21zq6d1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/gecs2l21zq6d1.png')">
-                
-                <img src="thumbnails/thumb_dark_maatter.png" alt="dark_maatter.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/dark_maatter.png')">
-                
-                <img src="thumbnails/thumb_8zzxxe0zoxue1.png" alt="8zzxxe0zoxue1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/8zzxxe0zoxue1.png')">
-                
-                <img src="thumbnails/thumb_kgw7r7zswghe1.png" alt="kgw7r7zswghe1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/kgw7r7zswghe1.png')">
-                
-                <img src="thumbnails/thumb_0rwv4hgz0ese1.png" alt="0rwv4hgz0ese1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/0rwv4hgz0ese1.png')">
-                
-                <img src="thumbnails/thumb_9kubwfqr0qvd1.png" alt="9kubwfqr0qvd1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/9kubwfqr0qvd1.png')">
-                
-                <img src="thumbnails/thumb_hywu4wij41pe1.png" alt="hywu4wij41pe1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/hywu4wij41pe1.png')">
-                
-                <img src="thumbnails/thumb_Sunset-Forrest.png" alt="Sunset-Forrest.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/Sunset-Forrest.png')">
-                
-                <img src="thumbnails/thumb_jmvjb1r2ihje1.png" alt="jmvjb1r2ihje1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/jmvjb1r2ihje1.png')">
-                
-                <img src="thumbnails/thumb_w62cxida7o1f1.png" alt="w62cxida7o1f1.png" class="thumbnail" 
-                     onclick="openFullscreen('evening/w62cxida7o1f1.png')">
-                
-                <img src="thumbnails/thumb_Cafe.webp" alt="Cafe.webp" class="thumbnail" 
-                     onclick="openFullscreen('evening/Cafe.webp')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('evening/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_3840x2400-v0-40c5pyquwjtd1.webp" alt="3840x2400-v0-40c5pyquwjtd1.webp" class="thumbnail" 
-                     onclick="openFullscreen('evening/3840x2400-v0-40c5pyquwjtd1.webp')">
-                
-                <img src="thumbnails/thumb_1fwbrwr0dszc1.jpeg" alt="1fwbrwr0dszc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/1fwbrwr0dszc1.jpeg')">
-                
-                <img src="thumbnails/thumb_185dmxrnkoee1.jpeg" alt="185dmxrnkoee1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/185dmxrnkoee1.jpeg')">
-                
-                <img src="thumbnails/thumb_xauhx8nb0jhe1.jpeg" alt="xauhx8nb0jhe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/xauhx8nb0jhe1.jpeg')">
-                
-                <img src="thumbnails/thumb_jlbmlxqoo5ue1.jpeg" alt="jlbmlxqoo5ue1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/jlbmlxqoo5ue1.jpeg')">
-                
-                <img src="thumbnails/thumb_732vx3shzqfe1.jpeg" alt="732vx3shzqfe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/732vx3shzqfe1.jpeg')">
-                
-                <img src="thumbnails/thumb_r4pkfgy1swye1.jpeg" alt="r4pkfgy1swye1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/r4pkfgy1swye1.jpeg')">
-                
-                <img src="thumbnails/thumb_mmhbycon4tme1.jpeg" alt="mmhbycon4tme1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/mmhbycon4tme1.jpeg')">
-                
-                <img src="thumbnails/thumb_9k2y40rho1bc1.jpeg" alt="9k2y40rho1bc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/9k2y40rho1bc1.jpeg')">
-                
-                <img src="thumbnails/thumb_rzrkxm9w5t2e1.jpeg" alt="rzrkxm9w5t2e1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/rzrkxm9w5t2e1.jpeg')">
-                
-                <img src="thumbnails/thumb_jzubaz866qhe1.jpeg" alt="jzubaz866qhe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/jzubaz866qhe1.jpeg')">
-                
-                <img src="thumbnails/thumb_mro5ehgt84he1.jpeg" alt="mro5ehgt84he1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/mro5ehgt84he1.jpeg')">
-                
-                <img src="thumbnails/thumb_umlfymwjnape1.jpeg" alt="umlfymwjnape1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/umlfymwjnape1.jpeg')">
-                
-                <img src="thumbnails/thumb_0mar2ygf59je1.jpeg" alt="0mar2ygf59je1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/0mar2ygf59je1.jpeg')">
-                
-                <img src="thumbnails/thumb_y31rkzmxufld1.jpeg" alt="y31rkzmxufld1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/y31rkzmxufld1.jpeg')">
-                
-                <img src="thumbnails/thumb_gilo0jif3dq91.jpeg" alt="gilo0jif3dq91.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/gilo0jif3dq91.jpeg')">
-                
-                <img src="thumbnails/thumb_3fx4o15el3bc1.jpeg" alt="3fx4o15el3bc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/3fx4o15el3bc1.jpeg')">
-                
-                <img src="thumbnails/thumb_M08mded.jpeg" alt="M08mded.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/M08mded.jpeg')">
-                
-                <img src="thumbnails/thumb_aellaaw29sbe1.jpeg" alt="aellaaw29sbe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/aellaaw29sbe1.jpeg')">
-                
-                <img src="thumbnails/thumb_lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg" alt="lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg')">
-                
-                <img src="thumbnails/thumb_ja6y0zmoaepe1.jpeg" alt="ja6y0zmoaepe1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/ja6y0zmoaepe1.jpeg')">
-                
-                <img src="thumbnails/thumb_5ii3egi86rjc1.jpeg" alt="5ii3egi86rjc1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('evening/5ii3egi86rjc1.jpeg')">
-                </div><h2>Night</h2><div class="gallery">
-                <img src="thumbnails/thumb_wallpaper33.jpg" alt="wallpaper33.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/wallpaper33.jpg')">
-                
-                <img src="thumbnails/thumb_awzpc77iys1a1.jpg" alt="awzpc77iys1a1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/awzpc77iys1a1.jpg')">
-                
-                <img src="thumbnails/thumb_linux-neon-street-arch.jpg" alt="linux-neon-street-arch.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/linux-neon-street-arch.jpg')">
-                
-                <img src="thumbnails/thumb_uta5fp5qhtea1.jpg" alt="uta5fp5qhtea1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/uta5fp5qhtea1.jpg')">
-                
-                <img src="thumbnails/thumb_small-memory-evening-8k-5o.jpg" alt="small-memory-evening-8k-5o.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/small-memory-evening-8k-5o.jpg')">
-                
-                <img src="thumbnails/thumb_a80kjddj5lfa1.jpg" alt="a80kjddj5lfa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/a80kjddj5lfa1.jpg')">
-                
-                <img src="thumbnails/thumb_xk7ph8t6yza81.jpg" alt="xk7ph8t6yza81.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/xk7ph8t6yza81.jpg')">
-                
-                <img src="thumbnails/thumb_xg8z6ccdb8l51.jpg" alt="xg8z6ccdb8l51.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/xg8z6ccdb8l51.jpg')">
-                
-                <img src="thumbnails/thumb_9nttwc5d6doa1.jpg" alt="9nttwc5d6doa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/9nttwc5d6doa1.jpg')">
-                
-                <img src="thumbnails/thumb_2txfookz3doa1.jpg" alt="2txfookz3doa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/2txfookz3doa1.jpg')">
-                
-                <img src="thumbnails/thumb_kj0ltdovbjpa1.jpg" alt="kj0ltdovbjpa1.jpg" class="thumbnail" 
-                     onclick="openFullscreen('night/kj0ltdovbjpa1.jpg')">
-                
-                <img src="thumbnails/thumb_Firefox_wallpaper.png" alt="Firefox_wallpaper.png" class="thumbnail" 
-                     onclick="openFullscreen('night/Firefox_wallpaper.png')">
-                
-                <img src="thumbnails/thumb_cr6uo8l38q5c1.png" alt="cr6uo8l38q5c1.png" class="thumbnail" 
-                     onclick="openFullscreen('night/cr6uo8l38q5c1.png')">
-                
-                <img src="thumbnails/thumb_0219.png" alt="0219.png" class="thumbnail" 
-                     onclick="openFullscreen('night/0219.png')">
-                
-                <img src="thumbnails/thumb_wallhaven-o3z85l.png" alt="wallhaven-o3z85l.png" class="thumbnail" 
-                     onclick="openFullscreen('night/wallhaven-o3z85l.png')">
-                
-                <img src="thumbnails/thumb_japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png" alt="japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png" class="thumbnail" 
-                     onclick="openFullscreen('night/japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png')">
-                
-                <img src="thumbnails/thumb_ibm_upscayl_2x_4xNomos8kSC.png" alt="ibm_upscayl_2x_4xNomos8kSC.png" class="thumbnail" 
-                     onclick="openFullscreen('night/ibm_upscayl_2x_4xNomos8kSC.png')">
-                
-                <img src="thumbnails/thumb_wallpaper2.png" alt="wallpaper2.png" class="thumbnail" 
-                     onclick="openFullscreen('night/wallpaper2.png')">
-                
-                <img src="thumbnails/thumb_y5gclzqmwq0a1.png" alt="y5gclzqmwq0a1.png" class="thumbnail" 
-                     onclick="openFullscreen('night/y5gclzqmwq0a1.png')">
-                
-                <img src="thumbnails/thumb_6un09w6p0pn91.png" alt="6un09w6p0pn91.png" class="thumbnail" 
-                     onclick="openFullscreen('night/6un09w6p0pn91.png')">
-                
-                <img src="thumbnails/thumb_0110.png" alt="0110.png" class="thumbnail" 
-                     onclick="openFullscreen('night/0110.png')">
-                
-                <img src="thumbnails/thumb_alnv82qwl2f31-1134210900.webp" alt="alnv82qwl2f31-1134210900.webp" class="thumbnail" 
-                     onclick="openFullscreen('night/alnv82qwl2f31-1134210900.webp')">
-                
-                <img src="thumbnails/thumb_00qdvcot7hjb1.webp" alt="00qdvcot7hjb1.webp" class="thumbnail" 
-                     onclick="openFullscreen('night/00qdvcot7hjb1.webp')">
-                
-                <img src="thumbnails/thumb_iss071e002844~orig.jpeg" alt="iss071e002844~orig.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('night/iss071e002844~orig.jpeg')">
-                
-                <img src="thumbnails/thumb_wk3esbn1dq1f1.jpeg" alt="wk3esbn1dq1f1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('night/wk3esbn1dq1f1.jpeg')">
-                
-                <img src="thumbnails/thumb_2tgf4y6488ld1.jpeg" alt="2tgf4y6488ld1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('night/2tgf4y6488ld1.jpeg')">
-                </div><h2>Midnight</h2><div class="gallery">
-                <img src="thumbnails/thumb_Almost to Shackleton 4k.jpg" alt="Almost to Shackleton 4k.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/Almost to Shackleton 4k.jpg')">
-                
-                <img src="thumbnails/thumb_wallpaperflare.com_wallpaper.jpg" alt="wallpaperflare.com_wallpaper.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/wallpaperflare.com_wallpaper.jpg')">
-                
-                <img src="thumbnails/thumb_586388.jpg" alt="586388.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/586388.jpg')">
-                
-                <img src="thumbnails/thumb_509987.jpg" alt="509987.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/509987.jpg')">
-                
-                <img src="thumbnails/thumb_551537.jpg" alt="551537.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/551537.jpg')">
-                
-                <img src="thumbnails/thumb_space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg" alt="space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg')">
-                
-                <img src="thumbnails/thumb_893848.png" alt="893848.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/893848.png')">
-                
-                <img src="thumbnails/thumb_1245403.png" alt="1245403.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/1245403.png')">
-                
-                <img src="thumbnails/thumb_976156.png" alt="976156.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/976156.png')">
-                
-                <img src="thumbnails/thumb_utuqha24u2dd1.png" alt="utuqha24u2dd1.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/utuqha24u2dd1.png')">
-                
-                <img src="thumbnails/thumb_677357.png" alt="677357.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/677357.png')">
-                
-                <img src="thumbnails/thumb_qetzip92de2d1.png" alt="qetzip92de2d1.png" class="thumbnail" 
-                     onclick="openFullscreen('midnight/qetzip92de2d1.png')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp" class="thumbnail" 
-                     onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_uhmtqleyl2sd1.jpeg" alt="uhmtqleyl2sd1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/uhmtqleyl2sd1.jpeg')">
-                
-                <img src="thumbnails/thumb_k69ix76mc38d1.jpeg" alt="k69ix76mc38d1.jpeg" class="thumbnail" 
-                     onclick="openFullscreen('midnight/k69ix76mc38d1.jpeg')">
-                </div></div><div id="verticalGallery" class="gallery-container"><h2>Morning</h2><div class="gallery">
-                <img src="thumbnails/thumb_4k nature.jpg" alt="4k nature.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/4k nature.jpg')">
-                
-                <img src="thumbnails/thumb_m9qyrrk1bhpe1.png" alt="m9qyrrk1bhpe1.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/m9qyrrk1bhpe1.png')">
-                
-                <img src="thumbnails/thumb_wpdjlkgfkktd1.png" alt="wpdjlkgfkktd1.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/wpdjlkgfkktd1.png')">
-                
-                <img src="thumbnails/thumb_cnjotgj448mb1.png" alt="cnjotgj448mb1.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/cnjotgj448mb1.png')">
-                
-                <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp')">
-                
-                <img src="thumbnails/thumb_a-few-good-ones-i-found-v0-eirh1m5wagse1.webp" alt="a-few-good-ones-i-found-v0-eirh1m5wagse1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/a-few-good-ones-i-found-v0-eirh1m5wagse1.webp')">
-                
-                <img src="thumbnails/thumb_5le1mzpp5ced1.jpeg" alt="5le1mzpp5ced1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/5le1mzpp5ced1.jpeg')">
-                
-                <img src="thumbnails/thumb_a16bkzzdta7c1.jpeg" alt="a16bkzzdta7c1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/a16bkzzdta7c1.jpeg')">
-                
-                <img src="thumbnails/thumb_8lty8jtnd8oe1.jpeg" alt="8lty8jtnd8oe1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/8lty8jtnd8oe1.jpeg')">
-                
-                <img src="thumbnails/thumb_3sso3csbvvnd1.jpeg" alt="3sso3csbvvnd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/3sso3csbvvnd1.jpeg')">
-                
-                <img src="thumbnails/thumb_0vwtnypb1s0f1.jpeg" alt="0vwtnypb1s0f1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/0vwtnypb1s0f1.jpeg')">
-                
-                <img src="thumbnails/thumb_b6b7s7z7fzoe1.jpeg" alt="b6b7s7z7fzoe1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/b6b7s7z7fzoe1.jpeg')">
-                
-                <img src="thumbnails/thumb_g6kpzwvdhhcd1.jpeg" alt="g6kpzwvdhhcd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/g6kpzwvdhhcd1.jpeg')">
-                
-                <img src="thumbnails/thumb_83sn2lfeozme1.jpeg" alt="83sn2lfeozme1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/83sn2lfeozme1.jpeg')">
-                
-                <img src="thumbnails/thumb_7yz823xdkmmd1.jpeg" alt="7yz823xdkmmd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/7yz823xdkmmd1.jpeg')">
-                
-                <img src="thumbnails/thumb_t8mjnp3687td1.jpeg" alt="t8mjnp3687td1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/morning/t8mjnp3687td1.jpeg')">
-                </div><h2>Day</h2><div class="gallery">
-                <img src="thumbnails/thumb_6x7ohznq2f6d1.jpg" alt="6x7ohznq2f6d1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/6x7ohznq2f6d1.jpg')">
-                
-                <img src="thumbnails/thumb_road-to-nowhere-v0-05gsw2lh0dod1.webp" alt="road-to-nowhere-v0-05gsw2lh0dod1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/road-to-nowhere-v0-05gsw2lh0dod1.webp')">
-                
-                <img src="thumbnails/thumb_birch-trees-in-fall-v0-1xv6h2ibyscd1.webp" alt="birch-trees-in-fall-v0-1xv6h2ibyscd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/birch-trees-in-fall-v0-1xv6h2ibyscd1.webp')">
-                
-                <img src="thumbnails/thumb_birch-trees-in-fall-v0-eticw4ibyscd1.webp" alt="birch-trees-in-fall-v0-eticw4ibyscd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/birch-trees-in-fall-v0-eticw4ibyscd1.webp')">
-                
-                <img src="thumbnails/thumb_6xi31wzo2d3d1.jpeg" alt="6xi31wzo2d3d1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/6xi31wzo2d3d1.jpeg')">
-                
-                <img src="thumbnails/thumb_b4vyab65vbwd1.jpeg" alt="b4vyab65vbwd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/b4vyab65vbwd1.jpeg')">
-                
-                <img src="thumbnails/thumb_o619y2rden7d1.jpeg" alt="o619y2rden7d1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/o619y2rden7d1.jpeg')">
-                
-                <img src="thumbnails/thumb_v77ez8346ote1.jpeg" alt="v77ez8346ote1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/day/v77ez8346ote1.jpeg')">
-                </div><h2>Evening</h2><div class="gallery">
-                <img src="thumbnails/thumb_m4dsda9l90ba1.jpg" alt="m4dsda9l90ba1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/m4dsda9l90ba1.jpg')">
-                
-                <img src="thumbnails/thumb_1fwbrwr0dszc1.jpg" alt="1fwbrwr0dszc1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/1fwbrwr0dszc1.jpg')">
-                
-                <img src="thumbnails/thumb_wooden-table-coffee.jpg" alt="wooden-table-coffee.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/wooden-table-coffee.jpg')">
-                
-                <img src="thumbnails/thumb_lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg" alt="lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg')">
-                
-                <img src="thumbnails/thumb_i474qy0t0qad1.webp" alt="i474qy0t0qad1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/i474qy0t0qad1.webp')">
-                
-                <img src="thumbnails/thumb_9yqb663hfu171.webp" alt="9yqb663hfu171.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/9yqb663hfu171.webp')">
-                
-                <img src="thumbnails/thumb_another-wallpaper-dump-v0-5dk3nji13jfd1.webp" alt="another-wallpaper-dump-v0-5dk3nji13jfd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/another-wallpaper-dump-v0-5dk3nji13jfd1.webp')">
-                
-                <img src="thumbnails/thumb_this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp" alt="this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp')">
-                
-                <img src="thumbnails/thumb_05dxmnyie9bc1.jpeg" alt="05dxmnyie9bc1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/05dxmnyie9bc1.jpeg')">
-                
-                <img src="thumbnails/thumb_ydju38ncd1cd1.jpeg" alt="ydju38ncd1cd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/ydju38ncd1cd1.jpeg')">
-                
-                <img src="thumbnails/thumb_ri30gdehevbd1.jpeg" alt="ri30gdehevbd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/ri30gdehevbd1.jpeg')">
-                
-                <img src="thumbnails/thumb_jfqqdvf2r6rd1.jpeg" alt="jfqqdvf2r6rd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/jfqqdvf2r6rd1.jpeg')">
-                
-                <img src="thumbnails/thumb_toodk7opsufd1.jpeg" alt="toodk7opsufd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/toodk7opsufd1.jpeg')">
-                
-                <img src="thumbnails/thumb_zzuflqywsddd1.jpeg" alt="zzuflqywsddd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/zzuflqywsddd1.jpeg')">
-                
-                <img src="thumbnails/thumb_GiR-ImuawAA9shh.jpeg" alt="GiR-ImuawAA9shh.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/GiR-ImuawAA9shh.jpeg')">
-                
-                <img src="thumbnails/thumb_4zog8cvpwepe1.jpeg" alt="4zog8cvpwepe1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/4zog8cvpwepe1.jpeg')">
-                
-                <img src="thumbnails/thumb_z30afyagfngd1.jpeg" alt="z30afyagfngd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/z30afyagfngd1.jpeg')">
-                
-                <img src="thumbnails/thumb_ffcs71cwudgd1.jpeg" alt="ffcs71cwudgd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/ffcs71cwudgd1.jpeg')">
-                
-                <img src="thumbnails/thumb_1ff9jp9t3dnd1.jpeg" alt="1ff9jp9t3dnd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/1ff9jp9t3dnd1.jpeg')">
-                
-                <img src="thumbnails/thumb_cayqr7ooyjvd1.jpeg" alt="cayqr7ooyjvd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/cayqr7ooyjvd1.jpeg')">
-                
-                <img src="thumbnails/thumb_kaw6cml01rec1.jpeg" alt="kaw6cml01rec1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/kaw6cml01rec1.jpeg')">
-                
-                <img src="thumbnails/thumb_qyo8z14ydbgd1.jpeg" alt="qyo8z14ydbgd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/qyo8z14ydbgd1.jpeg')">
-                
-                <img src="thumbnails/thumb_x12pr1c55vxd1.jpeg" alt="x12pr1c55vxd1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/evening/x12pr1c55vxd1.jpeg')">
-                </div><h2>Night</h2><div class="gallery">
-                <img src="thumbnails/thumb_small-memory-evening-8k-5o.jpg" alt="small-memory-evening-8k-5o.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/small-memory-evening-8k-5o.jpg')">
-                
-                <img src="thumbnails/thumb_xk7ph8t6yza81.jpg" alt="xk7ph8t6yza81.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/xk7ph8t6yza81.jpg')">
-                
-                <img src="thumbnails/thumb_bFPNdFU.jpg" alt="bFPNdFU.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/bFPNdFU.jpg')">
-                
-                <img src="thumbnails/thumb_cgw1x4pzceoa1.jpg" alt="cgw1x4pzceoa1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/cgw1x4pzceoa1.jpg')">
-                
-                <img src="thumbnails/thumb_cr6uo8l38q5c1.png" alt="cr6uo8l38q5c1.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/cr6uo8l38q5c1.png')">
-                
-                <img src="thumbnails/thumb_6un09w6p0pn91.png" alt="6un09w6p0pn91.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/6un09w6p0pn91.png')">
-                
-                <img src="thumbnails/thumb_science-wallpapers-v0-8fmr7ia6v5pd1.webp" alt="science-wallpapers-v0-8fmr7ia6v5pd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/science-wallpapers-v0-8fmr7ia6v5pd1.webp')">
-                
-                <img src="thumbnails/thumb_enjoy-guys-v0-604opus187hd1.webp" alt="enjoy-guys-v0-604opus187hd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/enjoy-guys-v0-604opus187hd1.webp')">
-                
-                <img src="thumbnails/thumb_wall-dump-v0-zlqzk5whxh7d1.webp" alt="wall-dump-v0-zlqzk5whxh7d1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/wall-dump-v0-zlqzk5whxh7d1.webp')">
-                
-                <img src="thumbnails/thumb_mountain-landscapes-4k-v0-6sc28s2jyije1.webp" alt="mountain-landscapes-4k-v0-6sc28s2jyije1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/mountain-landscapes-4k-v0-6sc28s2jyije1.webp')">
-                
-                <img src="thumbnails/thumb_enjoy-guys-v0-xj1ai6b287hd1.webp" alt="enjoy-guys-v0-xj1ai6b287hd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/enjoy-guys-v0-xj1ai6b287hd1.webp')">
-                
-                <img src="thumbnails/thumb_dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp" alt="dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp')">
-                
-                <img src="thumbnails/thumb_favourites-v0-5ub6c8d5gagd1.webp" alt="favourites-v0-5ub6c8d5gagd1.webp" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/favourites-v0-5ub6c8d5gagd1.webp')">
-                
-                <img src="thumbnails/thumb_rhbjybrmssod1.jpeg" alt="rhbjybrmssod1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/rhbjybrmssod1.jpeg')">
-                
-                <img src="thumbnails/thumb_7ewlypsfo3ke1.jpeg" alt="7ewlypsfo3ke1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/7ewlypsfo3ke1.jpeg')">
-                
-                <img src="thumbnails/thumb_z1v88hgfk30e1.jpeg" alt="z1v88hgfk30e1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/z1v88hgfk30e1.jpeg')">
-                
-                <img src="thumbnails/thumb_mao9n02fcspc1.jpeg" alt="mao9n02fcspc1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/mao9n02fcspc1.jpeg')">
-                
-                <img src="thumbnails/thumb_a78ak82c8lld1.jpeg" alt="a78ak82c8lld1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/a78ak82c8lld1.jpeg')">
-                
-                <img src="thumbnails/thumb_4ivlmhe0gnxe1.jpeg" alt="4ivlmhe0gnxe1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/4ivlmhe0gnxe1.jpeg')">
-                
-                <img src="thumbnails/thumb_yhjcy3mpaewe1.jpeg" alt="yhjcy3mpaewe1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/night/yhjcy3mpaewe1.jpeg')">
-                </div><h2>Midnight</h2><div class="gallery">
-                <img src="thumbnails/thumb_k69ix76mc38d1.jpg" alt="k69ix76mc38d1.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/k69ix76mc38d1.jpg')">
-                
-                <img src="thumbnails/thumb_wallpaperflare.com_wallpaper.jpg" alt="wallpaperflare.com_wallpaper.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/wallpaperflare.com_wallpaper.jpg')">
-                
-                <img src="thumbnails/thumb_551537.jpg" alt="551537.jpg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/551537.jpg')">
-                
-                <img src="thumbnails/thumb_893848.png" alt="893848.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/893848.png')">
-                
-                <img src="thumbnails/thumb_677357.png" alt="677357.png" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/677357.png')">
-                
-                <img src="thumbnails/thumb_5g05r882s0we1.jpeg" alt="5g05r882s0we1.jpeg" class="thumbnail vertical" 
-                     onclick="openFullscreen('vertical/midnight/5g05r882s0we1.jpeg')">
-                </div></div>
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_v1tzz5pufk0b1.jpg" alt="v1tzz5pufk0b1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('morning/v1tzz5pufk0b1.jpg')">
+                        <span class="tooltiptext">Gotthard Pass in the Swiss Alps with its serpentine road illuminated at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gruv-forest.jpg" alt="gruv-forest.jpg" class="thumbnail" 
+                             onclick="openFullscreen('morning/gruv-forest.jpg')">
+                        <span class="tooltiptext">Foggy coniferous forest, possibly in the Pacific Northwest.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_500pllhyaf3b1.jpg" alt="500pllhyaf3b1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('morning/500pllhyaf3b1.jpg')">
+                    
+                    <img src="thumbnails/thumb_54ssr0ya4mc91.jpg" alt="54ssr0ya4mc91.jpg" class="thumbnail" 
+                         onclick="openFullscreen('morning/54ssr0ya4mc91.jpg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg')">
+                        <span class="tooltiptext">Lake Tekapo in New Zealand's South Island under a starry night sky with the Milky Way visible.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_2wogo830o3jc1.png" alt="2wogo830o3jc1.png" class="thumbnail" 
+                             onclick="openFullscreen('morning/2wogo830o3jc1.png')">
+                        <span class="tooltiptext">Hobbiton Movie Set in Matamata, New Zealand, featuring a view from inside a hobbit hole.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_emzka1wnfaga1.png" alt="emzka1wnfaga1.png" class="thumbnail" 
+                             onclick="openFullscreen('morning/emzka1wnfaga1.png')">
+                        <span class="tooltiptext">Misty autumn forest in the Adirondack Mountains of New York with morning light filtering through the trees.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_dark.png" alt="dark.png" class="thumbnail" 
+                             onclick="openFullscreen('morning/dark.png')">
+                        <span class="tooltiptext">Traditional Japanese garden with a pond and temple building, likely at a Buddhist temple or historic site in Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_a8jxcwl2gjfe1.png" alt="a8jxcwl2gjfe1.png" class="thumbnail" 
+                             onclick="openFullscreen('morning/a8jxcwl2gjfe1.png')">
+                        <span class="tooltiptext">Lofoten Islands in Norway, viewed through a rock formation overlooking a fjord.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_ide4apeaqljc1.png" alt="ide4apeaqljc1.png" class="thumbnail" 
+                         onclick="openFullscreen('morning/ide4apeaqljc1.png')">
+                    
+                    <img src="thumbnails/thumb_wallpaper_102.png" alt="wallpaper_102.png" class="thumbnail" 
+                         onclick="openFullscreen('morning/wallpaper_102.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_cnjotgj448mb1.png" alt="cnjotgj448mb1.png" class="thumbnail" 
+                             onclick="openFullscreen('morning/cnjotgj448mb1.png')">
+                        <span class="tooltiptext">Teal and brown stained wooden planks forming a decorative surface.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_6rlfscem0h4d1.png" alt="6rlfscem0h4d1.png" class="thumbnail" 
+                         onclick="openFullscreen('morning/6rlfscem0h4d1.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" class="thumbnail" 
+                             onclick="openFullscreen('morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp')">
+                        <span class="tooltiptext">Lake Tekapo in New Zealand's South Island under a starry night sky with the Milky Way visible.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_2hgi3uu7d4af1.jpeg" alt="2hgi3uu7d4af1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/2hgi3uu7d4af1.jpeg')">
+                        <span class="tooltiptext">A serene lake reflecting a dramatic golden sunset behind a silhouetted treeline.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_5q3suutz8zge1.jpeg" alt="5q3suutz8zge1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/5q3suutz8zge1.jpeg')">
+                        <span class="tooltiptext">A solitary tree perched on a rocky outcrop in a misty mountain range, likely in the Alps or Himalayas.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_ysmslfwh9eof1.jpeg" alt="ysmslfwh9eof1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('morning/ysmslfwh9eof1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_j9bgu51m7v4f1.jpeg" alt="j9bgu51m7v4f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/j9bgu51m7v4f1.jpeg')">
+                        <span class="tooltiptext">Misty mountain road in Kauai's Na Pali Coast, Hawaii.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xulq7wx8m0cc1.jpeg" alt="xulq7wx8m0cc1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/xulq7wx8m0cc1.jpeg')">
+                        <span class="tooltiptext">Temperate forest ecosystem with fern growth on moss-covered tree trunk.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_n3VQy4Z.jpeg" alt="n3VQy4Z.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/n3VQy4Z.jpeg')">
+                        <span class="tooltiptext">Tre Cime di Lavaredo peaks in the Dolomites, Italy, shrouded in dramatic blue twilight fog.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gcjhj74zde8c1.jpeg" alt="gcjhj74zde8c1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/gcjhj74zde8c1.jpeg')">
+                        <span class="tooltiptext">Hogwarts School of Witchcraft and Wizardry from the Harry Potter franchise.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_qswmv60y4elf1.jpeg" alt="qswmv60y4elf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/qswmv60y4elf1.jpeg')">
+                        <span class="tooltiptext">A fjord lake in Norway with distinctive mountain peaks under dramatic cloudy skies.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_p2qm9ksnvi2f1.jpeg" alt="p2qm9ksnvi2f1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('morning/p2qm9ksnvi2f1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gbbp0s7j6g5f1.jpeg" alt="gbbp0s7j6g5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/gbbp0s7j6g5f1.jpeg')">
+                        <span class="tooltiptext">Yosemite Valley in Yosemite National Park, California, with Half Dome visible on the right and morning fog blanketing the valley floor.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_lroq5q9hm2ge1.jpeg" alt="lroq5q9hm2ge1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/lroq5q9hm2ge1.jpeg')">
+                        <span class="tooltiptext">Grindelwald valley in the Bernese Alps, Switzerland.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xnn6jeunk14f1.jpeg" alt="xnn6jeunk14f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/xnn6jeunk14f1.jpeg')">
+                        <span class="tooltiptext">Sassolungo mountain peaks in the Dolomites of northern Italy with traditional alpine huts in the foreground.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_t2wutyai59nf1.jpeg" alt="t2wutyai59nf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('morning/t2wutyai59nf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_a2r15bc7ub5f1.jpeg" alt="a2r15bc7ub5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/a2r15bc7ub5f1.jpeg')">
+                        <span class="tooltiptext">Lake Sørvágsvatn/Leitisvatn on Vágar island in the Faroe Islands, featuring the dramatic Trælanípa cliff.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_rphdmiwkmbhf1.jpeg" alt="rphdmiwkmbhf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/rphdmiwkmbhf1.jpeg')">
+                        <span class="tooltiptext">A rocky creek bed in an Appalachian forest during autumn with sunlight streaming through the colorful foliage.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_643p9n0as1ce1.jpeg" alt="643p9n0as1ce1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/643p9n0as1ce1.jpeg')">
+                        <span class="tooltiptext">Two Medicine Lake with Mount Sinopah in Glacier National Park, Montana during sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_bttvnj1wl3mf1.jpeg" alt="bttvnj1wl3mf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/bttvnj1wl3mf1.jpeg')">
+                        <span class="tooltiptext">Mount Rainier National Park in Washington State, framed by evergreen trees.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_qyvrr0gejagf1.jpeg" alt="qyvrr0gejagf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/qyvrr0gejagf1.jpeg')">
+                        <span class="tooltiptext">Bamboo forest with dramatic light rays filtering through the canopy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_uk4b6nixh46e1.jpeg" alt="uk4b6nixh46e1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('morning/uk4b6nixh46e1.jpeg')">
+                        <span class="tooltiptext">Cherry blossoms reflecting in a lake at Nakatsuna Lake in Nagano Prefecture, Japan.</span>
+                    </div>
+                    </div><h2>Day</h2><div class="gallery">
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_mfujmi98fnua1.jpg" alt="mfujmi98fnua1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/mfujmi98fnua1.jpg')">
+                        <span class="tooltiptext">A moody autumn forest trail covered with vibrant orange fallen leaves, likely in a temperate deciduous woodland.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg" alt="forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('day/forest-view-at-sunset-7680-x-4320-v0-sou485zwm51c1.jpg')">
+                    
+                    <img src="thumbnails/thumb_hvgx5dbgnisa1.jpg" alt="hvgx5dbgnisa1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('day/hvgx5dbgnisa1.jpg')">
+                    
+                    <img src="thumbnails/thumb_road-2.jpg" alt="road-2.jpg" class="thumbnail" 
+                         onclick="openFullscreen('day/road-2.jpg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_vkx6mqcgcqsa1.jpg" alt="vkx6mqcgcqsa1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/vkx6mqcgcqsa1.jpg')">
+                        <span class="tooltiptext">This appears to be Ponderosa Falls in Spearfish Canyon, Black Hills, South Dakota.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0uu591x88rca1.jpg" alt="0uu591x88rca1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/0uu591x88rca1.jpg')">
+                        <span class="tooltiptext">This is digital fantasy artwork depicting a mystical triangular portal or monument in a surreal cosmic landscape, not a real geographical location.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallpaper.jpg" alt="wallpaper.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/wallpaper.jpg')">
+                        <span class="tooltiptext">A lakeside lodge in the Dolomites region of northern Italy, likely at Lake Braies (Pragser Wildsee).</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_j1ea3bv9wgxa1.jpg" alt="j1ea3bv9wgxa1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/j1ea3bv9wgxa1.jpg')">
+                        <span class="tooltiptext">Interior of a small rural chapel or church with autumn-decorated stained glass windows and wooden pews.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_dowprzuij78a1.jpg" alt="dowprzuij78a1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/dowprzuij78a1.jpg')">
+                        <span class="tooltiptext">This is a digital artwork depicting an imaginary alien planet with a ringed planet visible in the sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_backiee-87092-landscape.jpg" alt="backiee-87092-landscape.jpg" class="thumbnail" 
+                             onclick="openFullscreen('day/backiee-87092-landscape.jpg')">
+                        <span class="tooltiptext">Banff Avenue in Banff, Alberta, Canada with Cascade Mountain in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0n6nclqhz2wa1.png" alt="0n6nclqhz2wa1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/0n6nclqhz2wa1.png')">
+                        <span class="tooltiptext">Underwater fern fronds in a freshwater ecosystem, possibly in a tropical rainforest stream or pond.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_td760ff463bf1.png" alt="td760ff463bf1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/td760ff463bf1.png')">
+                        <span class="tooltiptext">Mount Rundle and turquoise Lake Minnewanka in Banff National Park, Canadian Rockies.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_x0wuhi055dte1.png" alt="x0wuhi055dte1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/x0wuhi055dte1.png')">
+                        <span class="tooltiptext">Lake Lucerne in Switzerland, surrounded by the Swiss Alps and a small lakeside town.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_e4msgweqz90f1.png" alt="e4msgweqz90f1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/e4msgweqz90f1.png')">
+                        <span class="tooltiptext">A colorful train crossing a steel bridge over the Katsura River in the forested mountains of Arashiyama, Kyoto, Japan during autumn foliage season.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_18m2zuycgvtc1.png" alt="18m2zuycgvtc1.png" class="thumbnail" 
+                         onclick="openFullscreen('day/18m2zuycgvtc1.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_kw4eqqvody6f1.png" alt="kw4eqqvody6f1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/kw4eqqvody6f1.png')">
+                        <span class="tooltiptext">This appears to be a sandbar in the Maldives, characterized by its pristine turquoise waters and isolated sandy beach formation.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_cp4f7dncrgxb1.png" alt="cp4f7dncrgxb1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/cp4f7dncrgxb1.png')">
+                        <span class="tooltiptext">This is a digital illustration of a cozy home office or study with bookshelves, artwork, and autumn foliage visible through large windows.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallpaper_102.png" alt="wallpaper_102.png" class="thumbnail" 
+                             onclick="openFullscreen('day/wallpaper_102.png')">
+                        <span class="tooltiptext">A rural countryside scene at sunset or sunrise with silhouetted trees, birds in flight, and farm equipment.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_l2u5b2zpfyqd1.png" alt="l2u5b2zpfyqd1.png" class="thumbnail" 
+                             onclick="openFullscreen('day/l2u5b2zpfyqd1.png')">
+                        <span class="tooltiptext">This appears to be a Hudson River School painting depicting a dramatic sunset over a coastal landscape, likely representing an idealized view of the Hudson River Valley.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_6x7ohznq2f6d1.jpeg" alt="6x7ohznq2f6d1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('day/6x7ohznq2f6d1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_mxnwe2g6q8jf1.jpeg" alt="mxnwe2g6q8jf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/mxnwe2g6q8jf1.jpeg')">
+                        <span class="tooltiptext">Deciduous forest trail with autumn foliage illuminated by golden sunlight filtering through the trees.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_p2ejdhj2y13f1.jpeg" alt="p2ejdhj2y13f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/p2ejdhj2y13f1.jpeg')">
+                        <span class="tooltiptext">This is the Alpe di Siusi (Seiser Alm) meadow with the distinctive Sassolungo/Langkofel mountain group in the Dolomites, Italy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gkco88jhjvhf1.jpeg" alt="gkco88jhjvhf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/gkco88jhjvhf1.jpeg')">
+                        <span class="tooltiptext">This is a mountainous landscape in the Himalayan region of northern India, likely in Himachal Pradesh or Uttarakhand, showing terraced fields and small settlements nestled among steep valleys.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gmfw2njxnv0f1.jpeg" alt="gmfw2njxnv0f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/gmfw2njxnv0f1.jpeg')">
+                        <span class="tooltiptext">The Seven Sisters waterfall cascading into Geirangerfjord in Norway.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_81wgd53zwpkf1.jpeg" alt="81wgd53zwpkf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('day/81wgd53zwpkf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_g9d3o4yldxwe1.jpeg" alt="g9d3o4yldxwe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/g9d3o4yldxwe1.jpeg')">
+                        <span class="tooltiptext">Maya Bay on Phi Phi Leh Island in Thailand with its iconic limestone cliffs and turquoise waters.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_28qqqvcy71if1.jpeg" alt="28qqqvcy71if1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/28qqqvcy71if1.jpeg')">
+                        <span class="tooltiptext">Hallstatt village on Lake Hallstatt in the Austrian Alps.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_1vz19cly093f1.jpeg" alt="1vz19cly093f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('day/1vz19cly093f1.jpeg')">
+                        <span class="tooltiptext">Calvary Hill (Kalvária) in Banská Štiavnica, Slovakia, with its historic churches rising above morning fog in the mountainous landscape.</span>
+                    </div>
+                    </div><h2>Evening</h2><div class="gallery">
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.jpg" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.jpg')">
+                        <span class="tooltiptext">Hanalei Pier at sunset on the north shore of Kauai, Hawaii.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallhaven-x8gkpo.jpg" alt="wallhaven-x8gkpo.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/wallhaven-x8gkpo.jpg')">
+                        <span class="tooltiptext">A teenager's bedroom with vintage computer equipment, car posters, and a bunk bed.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_road.jpg" alt="road.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/road.jpg')">
+                        <span class="tooltiptext">A misty forest road through a coniferous woodland, likely in a temperate region of Europe or North America.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Cafe.jpg" alt="Cafe.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/Cafe.jpg')">
+                        <span class="tooltiptext">A cozy, illuminated café or small restaurant with outdoor seating viewed at twilight, likely in an urban neighborhood in Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_3840x2400-v0-40c5pyquwjtd1.jpg" alt="3840x2400-v0-40c5pyquwjtd1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/3840x2400-v0-40c5pyquwjtd1.jpg')">
+                        <span class="tooltiptext">This is an aerial view of Manhattan in New York City at dusk, with the Hudson River visible in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_forest-4.jpg" alt="forest-4.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/forest-4.jpg')">
+                        <span class="tooltiptext">This appears to be an alpine forest trail in the Dolomites mountain range in northern Italy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallhaven-kx5v57.jpg" alt="wallhaven-kx5v57.jpg" class="thumbnail" 
+                             onclick="openFullscreen('evening/wallhaven-kx5v57.jpg')">
+                        <span class="tooltiptext">A nostalgic 1980s-themed bedroom or game room filled with vintage movie posters, toys, and electronics.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_cgtga5ms3aqe1.png" alt="cgtga5ms3aqe1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/cgtga5ms3aqe1.png')">
+                        <span class="tooltiptext">The Étretat Cliffs in Normandy, France, featuring the iconic natural arch and needle rock formation at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_888g4q4to56d1.png" alt="888g4q4to56d1.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/888g4q4to56d1.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_ptp9g3qormme1.png" alt="ptp9g3qormme1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/ptp9g3qormme1.png')">
+                        <span class="tooltiptext">The Matterhorn mountain reflected in Stellisee lake near Zermatt, Switzerland.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_c0xk0ruwe2je1.png" alt="c0xk0ruwe2je1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/c0xk0ruwe2je1.png')">
+                        <span class="tooltiptext">This is Hallstatt, Austria, a picturesque village nestled between mountains and Lake Hallstatt in the Salzkammergut region.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_2t04x2jm4y8f1.png" alt="2t04x2jm4y8f1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/2t04x2jm4y8f1.png')">
+                        <span class="tooltiptext">This is Monte San Salvatore overlooking the city of Lugano on Lake Lugano in Switzerland at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_messy-computer-room-v0-5meg1crcnwhc1.png" alt="messy-computer-room-v0-5meg1crcnwhc1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/messy-computer-room-v0-5meg1crcnwhc1.png')">
+                        <span class="tooltiptext">A cyberpunk hacker's workspace overlooking a futuristic cityscape, likely a digital art rendering rather than a real location.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_b9phh4kprpne1.png" alt="b9phh4kprpne1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/b9phh4kprpne1.png')">
+                        <span class="tooltiptext">A traditional Dutch windmill at Kinderdijk, Netherlands, silhouetted against a twilight sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Fuji-Dark.png" alt="Fuji-Dark.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/Fuji-Dark.png')">
+                        <span class="tooltiptext">Mount Fuji viewed from Chureito Pagoda in Fujiyoshida, Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_8pjukace2rhf1.png" alt="8pjukace2rhf1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/8pjukace2rhf1.png')">
+                        <span class="tooltiptext">A coastal beach scene at sunset with dramatic clouds reflected in wet sand and gentle waves.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_siyydc7uum4f1.png" alt="siyydc7uum4f1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/siyydc7uum4f1.png')">
+                        <span class="tooltiptext">The Dolomites mountain range in northern Italy, specifically the distinctive peaks of Passo Giau with dramatic cloud formations at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Study-table.png" alt="Study-table.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/Study-table.png')">
+                        <span class="tooltiptext">A cozy coffee shop with a reading nook featuring wooden tables, coffee cups, books, and large windows overlooking greenery.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_Sunset-room.png" alt="Sunset-room.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/Sunset-room.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_kb3hn5boh1xe1.png" alt="kb3hn5boh1xe1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/kb3hn5boh1xe1.png')">
+                        <span class="tooltiptext">Mount Fuji in Japan viewed from Lake Kawaguchi at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_abfpdxfgz91f1.png" alt="abfpdxfgz91f1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/abfpdxfgz91f1.png')">
+                        <span class="tooltiptext">Mount Rainier National Park in Washington State at sunset with snow-covered landscape and alpine reflection pool.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_7vzss3iwq0me1.png" alt="7vzss3iwq0me1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/7vzss3iwq0me1.png')">
+                        <span class="tooltiptext">Sand Harbor at Lake Tahoe, Nevada, featuring its iconic granite boulders and pine trees at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_luvaqiv550ld1.png" alt="luvaqiv550ld1.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/luvaqiv550ld1.png')">
+                    
+                    <img src="thumbnails/thumb_dt9xnkxbu5ge1.png" alt="dt9xnkxbu5ge1.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/dt9xnkxbu5ge1.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_n2ebqg5qjkse1.png" alt="n2ebqg5qjkse1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/n2ebqg5qjkse1.png')">
+                        <span class="tooltiptext">Mount Fuji in Japan viewed from Lake Motosu with alpenglow illuminating its snow-capped peak against a stormy sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xx1kv3ogqmze1.png" alt="xx1kv3ogqmze1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/xx1kv3ogqmze1.png')">
+                        <span class="tooltiptext">This is an aerial view of Chicago's lakefront along Lake Michigan at twilight, showing Lake Shore Drive and the city skyline.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_29kea6wnffke1.png" alt="29kea6wnffke1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/29kea6wnffke1.png')">
+                        <span class="tooltiptext">This is a coastal view of the Lofoten Islands in northern Norway during winter twilight, with snow-covered mountains across the fjord.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_5b40ysqfwnie1.png" alt="5b40ysqfwnie1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/5b40ysqfwnie1.png')">
+                        <span class="tooltiptext">This is the Ramon Crater (Makhtesh Ramon) in the Negev Desert, Israel, viewed at sunset from the cliff edge near Mitzpe Ramon.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_vagyjlpmrcge1.png" alt="vagyjlpmrcge1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/vagyjlpmrcge1.png')">
+                        <span class="tooltiptext">This appears to be a romantic painting of a European cityscape with a castle or monastery on a hill, viewed through arched colonnades at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gecs2l21zq6d1.png" alt="gecs2l21zq6d1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/gecs2l21zq6d1.png')">
+                        <span class="tooltiptext">A Hankyu Railway train crossing a bridge in Osaka, Japan at sunset with the city skyline in the background.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_dark_maatter.png" alt="dark_maatter.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/dark_maatter.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_8zzxxe0zoxue1.png" alt="8zzxxe0zoxue1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/8zzxxe0zoxue1.png')">
+                        <span class="tooltiptext">This is the Rain Vortex waterfall inside the Jewel Changi Airport in Singapore.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_kgw7r7zswghe1.png" alt="kgw7r7zswghe1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/kgw7r7zswghe1.png')">
+                        <span class="tooltiptext">This is Astypalaia (or Chora), the main town on Astypalaia Island in Greece, with its distinctive whitewashed buildings and illuminated castle perched on a hilltop overlooking the Aegean Sea.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_6m8mgrkku4cf1.png" alt="6m8mgrkku4cf1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/6m8mgrkku4cf1.png')">
+                        <span class="tooltiptext">Huangshan (Yellow Mountain) in Anhui Province, China.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0rwv4hgz0ese1.png" alt="0rwv4hgz0ese1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/0rwv4hgz0ese1.png')">
+                        <span class="tooltiptext">The Golden Gate Bridge in San Francisco, California at sunset with dramatic pink and purple skies.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_9kubwfqr0qvd1.png" alt="9kubwfqr0qvd1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/9kubwfqr0qvd1.png')">
+                        <span class="tooltiptext">A cozy café with a steaming cup of coffee by a rain-streaked window overlooking city lights.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_hywu4wij41pe1.png" alt="hywu4wij41pe1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/hywu4wij41pe1.png')">
+                        <span class="tooltiptext">Canmore, Alberta with the Canadian Rocky Mountains in the background at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_Sunset-Forrest.png" alt="Sunset-Forrest.png" class="thumbnail" 
+                         onclick="openFullscreen('evening/Sunset-Forrest.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_jmvjb1r2ihje1.png" alt="jmvjb1r2ihje1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/jmvjb1r2ihje1.png')">
+                        <span class="tooltiptext">A train passing through rice paddies in rural Japan during sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_w62cxida7o1f1.png" alt="w62cxida7o1f1.png" class="thumbnail" 
+                             onclick="openFullscreen('evening/w62cxida7o1f1.png')">
+                        <span class="tooltiptext">This is the town of Torbole on Lake Garda in northern Italy, captured during a colorful sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Cafe.webp" alt="Cafe.webp" class="thumbnail" 
+                             onclick="openFullscreen('evening/Cafe.webp')">
+                        <span class="tooltiptext">A cozy, illuminated café or small restaurant with outdoor seating viewed at twilight, likely in an urban neighborhood in Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp" class="thumbnail" 
+                             onclick="openFullscreen('evening/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-lggtyz46gcvc1.webp')">
+                        <span class="tooltiptext">Hanalei Pier at sunset on the north shore of Kauai, Hawaii.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_3840x2400-v0-40c5pyquwjtd1.webp" alt="3840x2400-v0-40c5pyquwjtd1.webp" class="thumbnail" 
+                             onclick="openFullscreen('evening/3840x2400-v0-40c5pyquwjtd1.webp')">
+                        <span class="tooltiptext">This is an aerial view of Manhattan in New York City at dusk, with the Hudson River visible in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_p5cf3tlrccgf1.jpeg" alt="p5cf3tlrccgf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/p5cf3tlrccgf1.jpeg')">
+                        <span class="tooltiptext">A waterfront gazebo on a coastal boardwalk, likely in a seaside town along the Atlantic coast.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_o0g40zjye85f1.jpeg" alt="o0g40zjye85f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/o0g40zjye85f1.jpeg')">
+                        <span class="tooltiptext">Chicago skyline featuring the iconic John Hancock Center (now 875 North Michigan Avenue) along Lake Michigan at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_fg88wims2ugf1.jpeg" alt="fg88wims2ugf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/fg88wims2ugf1.jpeg')">
+                        <span class="tooltiptext">Sunset over Lake Tahoe with pine trees framing the golden reflection on the water.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0wika8nyiygf1.jpeg" alt="0wika8nyiygf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/0wika8nyiygf1.jpeg')">
+                        <span class="tooltiptext">A rural railway track stretching into the distance with the sun setting dramatically through clouds above.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_ba1ssyb5pyhf1.jpeg" alt="ba1ssyb5pyhf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/ba1ssyb5pyhf1.jpeg')">
+                        <span class="tooltiptext">A highway overlooking Mono Lake in California with a rainbow appearing during a storm.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_bgd6gt72ov5f1.jpeg" alt="bgd6gt72ov5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/bgd6gt72ov5f1.jpeg')">
+                        <span class="tooltiptext">This is Stradun (Placa), the main limestone-paved pedestrian street in the Old Town of Dubrovnik, Croatia.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_a3ya41vaizhf1.jpeg" alt="a3ya41vaizhf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/a3ya41vaizhf1.jpeg')">
+                        <span class="tooltiptext">This is Kirkwall Marina in Orkney, Scotland, captured during a vibrant sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_geml3rvtkkcf1.jpeg" alt="geml3rvtkkcf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/geml3rvtkkcf1.jpeg')">
+                        <span class="tooltiptext">A rural highway stretching through rolling hills during sunset, likely in the American West.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Gr5M-n-WIAASrWg.jpeg" alt="Gr5M-n-WIAASrWg.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/Gr5M-n-WIAASrWg.jpeg')">
+                        <span class="tooltiptext">SpaceX launch pad at Cape Canaveral Space Force Station in Florida with a Falcon rocket on the launch tower at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_1fwbrwr0dszc1.jpeg" alt="1fwbrwr0dszc1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/1fwbrwr0dszc1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_lsshnshemu3f1.jpeg" alt="lsshnshemu3f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/lsshnshemu3f1.jpeg')">
+                        <span class="tooltiptext">The Bardenas Reales Natural Park in Navarre, Spain, featuring its distinctive badlands and mesa formations at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_eyrwodrqf9jf1.jpeg" alt="eyrwodrqf9jf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/eyrwodrqf9jf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_185dmxrnkoee1.jpeg" alt="185dmxrnkoee1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/185dmxrnkoee1.jpeg')">
+                        <span class="tooltiptext">Turnip Rock, a unique sea stack formation in Lake Huron near Port Austin, Michigan.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Gr5M8RCXkAE4IUn.jpeg" alt="Gr5M8RCXkAE4IUn.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/Gr5M8RCXkAE4IUn.jpeg')">
+                        <span class="tooltiptext">SpaceX Starship rocket on the launch pad at Starbase in Boca Chica, Texas, overlooking the Gulf of Mexico.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xauhx8nb0jhe1.jpeg" alt="xauhx8nb0jhe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/xauhx8nb0jhe1.jpeg')">
+                        <span class="tooltiptext">Doha skyline viewed through the arches of the Museum of Islamic Art in Qatar.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_v2oh7im8lajf1.jpeg" alt="v2oh7im8lajf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/v2oh7im8lajf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_jlbmlxqoo5ue1.jpeg" alt="jlbmlxqoo5ue1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/jlbmlxqoo5ue1.jpeg')">
+                        <span class="tooltiptext">This is Manarola, one of the five colorful cliffside villages of Cinque Terre in Italy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_732vx3shzqfe1.jpeg" alt="732vx3shzqfe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/732vx3shzqfe1.jpeg')">
+                        <span class="tooltiptext">Glencoe in the Scottish Highlands, featuring Buachaille Etive Mòr mountain under a dramatic pink and purple sunset sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_3i5han6jbfgf1.jpeg" alt="3i5han6jbfgf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/3i5han6jbfgf1.jpeg')">
+                        <span class="tooltiptext">San Giovanni Church in Ranui, Val di Funes, Dolomites, Italy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_r4pkfgy1swye1.jpeg" alt="r4pkfgy1swye1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/r4pkfgy1swye1.jpeg')">
+                        <span class="tooltiptext">Shorncliffe Pier in Queensland, Australia at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_40lxhnh0xymf1.jpeg" alt="40lxhnh0xymf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/40lxhnh0xymf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_b17n4z6t6lmf1.jpeg" alt="b17n4z6t6lmf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/b17n4z6t6lmf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_GumPc9sW4AA6QsS.jpeg" alt="GumPc9sW4AA6QsS.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/GumPc9sW4AA6QsS.jpeg')">
+                        <span class="tooltiptext">This is the Indian Institute of Science (IISc) campus in Bangalore, India, with its iconic bell tower surrounded by lush greenery at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_mmhbycon4tme1.jpeg" alt="mmhbycon4tme1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/mmhbycon4tme1.jpeg')">
+                        <span class="tooltiptext">This is Queenstown, New Zealand, situated on the shores of Lake Wakatipu with The Remarkables mountain range in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_z9ktcrq2bkbf1.jpeg" alt="z9ktcrq2bkbf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/z9ktcrq2bkbf1.jpeg')">
+                        <span class="tooltiptext">A railway track with distinctive arch supports photographed at sunset against a dramatic purple and orange sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_4lf04f9vmf5f1.jpeg" alt="4lf04f9vmf5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/4lf04f9vmf5f1.jpeg')">
+                        <span class="tooltiptext">This appears to be a waterfall in Iceland, possibly in the highlands region, captured during a dramatic sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_9k2y40rho1bc1.jpeg" alt="9k2y40rho1bc1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/9k2y40rho1bc1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Pitampura_TV_Tower.jpeg" alt="Pitampura_TV_Tower.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/Pitampura_TV_Tower.jpeg')">
+                        <span class="tooltiptext">Milad Tower in Tehran, Iran during sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_rzrkxm9w5t2e1.jpeg" alt="rzrkxm9w5t2e1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/rzrkxm9w5t2e1.jpeg')">
+                        <span class="tooltiptext">A lakeside wooden cabin with warm lighting reflected in the water at dusk, likely in a Scandinavian region.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_06cdqqr4sgff1.jpeg" alt="06cdqqr4sgff1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/06cdqqr4sgff1.jpeg')">
+                        <span class="tooltiptext">The Rocky Mountaineer train traveling through the Canadian Rockies, likely near Banff National Park.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_jzubaz866qhe1.jpeg" alt="jzubaz866qhe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/jzubaz866qhe1.jpeg')">
+                        <span class="tooltiptext">A winding mountain road with light trails at dusk, likely in Da Lat, Vietnam.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_mro5ehgt84he1.jpeg" alt="mro5ehgt84he1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/mro5ehgt84he1.jpeg')">
+                        <span class="tooltiptext">The Auvergne Volcanic Regional Park in France, featuring distinctive rock formations at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_umlfymwjnape1.jpeg" alt="umlfymwjnape1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/umlfymwjnape1.jpeg')">
+                        <span class="tooltiptext">A forest road likely in a national park with a digital sign warning &quot;YOUR GPS IS WRONG.&quot;</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0mar2ygf59je1.jpeg" alt="0mar2ygf59je1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/0mar2ygf59je1.jpeg')">
+                        <span class="tooltiptext">Eltz Castle (Burg Eltz), a medieval fortress nestled in the hills above the Moselle River in Germany.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_k7m7jc285x4f1.jpeg" alt="k7m7jc285x4f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/k7m7jc285x4f1.jpeg')">
+                        <span class="tooltiptext">A tree-lined path in a park or nature reserve at sunset with coniferous trees creating a natural corridor.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_ydsalf10dajf1.jpeg" alt="ydsalf10dajf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/ydsalf10dajf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_e1gimbj1phif1.jpeg" alt="e1gimbj1phif1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/e1gimbj1phif1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_tbve68aj6dnf1.jpeg" alt="tbve68aj6dnf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/tbve68aj6dnf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xzcrhtzxmf5f1.jpeg" alt="xzcrhtzxmf5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/xzcrhtzxmf5f1.jpeg')">
+                        <span class="tooltiptext">This appears to be a Christmas tree on a floating platform in a cove along the Pacific Northwest coast, possibly in Alaska or British Columbia.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_y31rkzmxufld1.jpeg" alt="y31rkzmxufld1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/y31rkzmxufld1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0oj296cfya6f1.jpeg" alt="0oj296cfya6f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/0oj296cfya6f1.jpeg')">
+                        <span class="tooltiptext">Tokyo skyline featuring the Tokyo Skytree tower during a dramatic sunset with storm clouds.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_mlhg5hw61b5f1.jpeg" alt="mlhg5hw61b5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/mlhg5hw61b5f1.jpeg')">
+                        <span class="tooltiptext">A dramatic lightning storm over a mountain peak in what appears to be the Alps, possibly in Switzerland or Austria.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_1varsz2cgg3f1.jpeg" alt="1varsz2cgg3f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/1varsz2cgg3f1.jpeg')">
+                        <span class="tooltiptext">Tokyo skyline featuring the Tokyo Skytree tower with Mount Fuji visible in the background at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_gilo0jif3dq91.jpeg" alt="gilo0jif3dq91.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/gilo0jif3dq91.jpeg')">
+                        <span class="tooltiptext">This appears to be the California coastline along the Pacific Coast Highway, possibly near Big Sur or Malibu, captured during a dramatic sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_3fx4o15el3bc1.jpeg" alt="3fx4o15el3bc1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/3fx4o15el3bc1.jpeg')">
+                        <span class="tooltiptext">A rural highway stretching into the distance under dramatic storm clouds at dusk.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_oitcahdl6g5f1.jpeg" alt="oitcahdl6g5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/oitcahdl6g5f1.jpeg')">
+                        <span class="tooltiptext">Monument Valley, located on the Arizona-Utah border, featuring its iconic sandstone buttes under a starry night sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_M08mded.jpeg" alt="M08mded.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/M08mded.jpeg')">
+                        <span class="tooltiptext">The Canadian Rockies in Banff National Park, Alberta, with dramatic mountain peaks silhouetted against a moody sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_8kv9xrp79cgf1.jpeg" alt="8kv9xrp79cgf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/8kv9xrp79cgf1.jpeg')">
+                        <span class="tooltiptext">A waterfront boardwalk in a coastal town at sunset with vibrant pink and purple skies reflecting on the water.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_aellaaw29sbe1.jpeg" alt="aellaaw29sbe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/aellaaw29sbe1.jpeg')">
+                        <span class="tooltiptext">Chureito Pagoda at Arakurayama Sengen Park with Mount Fuji in the background, Japan.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_c6py26ozeemf1.jpeg" alt="c6py26ozeemf1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/c6py26ozeemf1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_d0ydfpi0lobf1.jpeg" alt="d0ydfpi0lobf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/d0ydfpi0lobf1.jpeg')">
+                        <span class="tooltiptext">Yosemite Valley in Yosemite National Park, California, featuring El Capitan, Bridalveil Fall, and misty valley floor.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg" alt="lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('evening/lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_ja6y0zmoaepe1.jpeg" alt="ja6y0zmoaepe1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/ja6y0zmoaepe1.jpeg')">
+                        <span class="tooltiptext">Bow Lake in Banff National Park, Canadian Rockies, Alberta, Canada.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_b8lggxvfub5f1.jpeg" alt="b8lggxvfub5f1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/b8lggxvfub5f1.jpeg')">
+                        <span class="tooltiptext">This is the Bay of Villefranche-sur-Mer on the French Riviera, captured at sunset with its distinctive curved harbor and turquoise waters.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_3nz9oncld8ef1.jpeg" alt="3nz9oncld8ef1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/3nz9oncld8ef1.jpeg')">
+                        <span class="tooltiptext">The Church of St. Johann (St. Magdalena) in Val di Funes with the Dolomites mountains (Odle/Geisler group) in South Tyrol, Italy.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_5ii3egi86rjc1.jpeg" alt="5ii3egi86rjc1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('evening/5ii3egi86rjc1.jpeg')">
+                        <span class="tooltiptext">A dramatic sunset over a small town nestled in a valley surrounded by hills or mountains.</span>
+                    </div>
+                    </div><h2>Night</h2><div class="gallery">
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_00qdvcot7hjb1.jpg" alt="00qdvcot7hjb1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/00qdvcot7hjb1.jpg')">
+                        <span class="tooltiptext">Aerial nighttime view of a major urban city, possibly New York City, with a dense grid of illuminated buildings and streets.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallpaper33.jpg" alt="wallpaper33.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/wallpaper33.jpg')">
+                        <span class="tooltiptext">This is an artistic representation of a spiral galaxy, likely depicting the Milky Way galaxy.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_awzpc77iys1a1.jpg" alt="awzpc77iys1a1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('night/awzpc77iys1a1.jpg')">
+                    
+                    <img src="thumbnails/thumb_linux-neon-street-arch.jpg" alt="linux-neon-street-arch.jpg" class="thumbnail" 
+                         onclick="openFullscreen('night/linux-neon-street-arch.jpg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_uta5fp5qhtea1.jpg" alt="uta5fp5qhtea1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/uta5fp5qhtea1.jpg')">
+                        <span class="tooltiptext">A steaming traditional Korean earthenware pot (dolsot or ttukbaegi) photographed against a dark background.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_small-memory-evening-8k-5o.jpg" alt="small-memory-evening-8k-5o.jpg" class="thumbnail" 
+                         onclick="openFullscreen('night/small-memory-evening-8k-5o.jpg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_a80kjddj5lfa1.jpg" alt="a80kjddj5lfa1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/a80kjddj5lfa1.jpg')">
+                        <span class="tooltiptext">Earth viewed from space with the Milky Way galaxy visible in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xk7ph8t6yza81.jpg" alt="xk7ph8t6yza81.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/xk7ph8t6yza81.jpg')">
+                        <span class="tooltiptext">Earth's orbit with an astronaut performing a spacewalk near a space station.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_xg8z6ccdb8l51.jpg" alt="xg8z6ccdb8l51.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/xg8z6ccdb8l51.jpg')">
+                        <span class="tooltiptext">This appears to be Tenaya Lake in Yosemite National Park at night, with illuminated trees along the shoreline.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_9nttwc5d6doa1.jpg" alt="9nttwc5d6doa1.jpg" class="thumbnail" 
+                             onclick="openFullscreen('night/9nttwc5d6doa1.jpg')">
+                        <span class="tooltiptext">The Northern Lights (Aurora Borealis) illuminating the night sky over a coniferous forest in the Arctic region.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_2txfookz3doa1.jpg" alt="2txfookz3doa1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('night/2txfookz3doa1.jpg')">
+                    
+                    <img src="thumbnails/thumb_kj0ltdovbjpa1.jpg" alt="kj0ltdovbjpa1.jpg" class="thumbnail" 
+                         onclick="openFullscreen('night/kj0ltdovbjpa1.jpg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_Firefox_wallpaper.png" alt="Firefox_wallpaper.png" class="thumbnail" 
+                             onclick="openFullscreen('night/Firefox_wallpaper.png')">
+                        <span class="tooltiptext">A silhouetted mountain landscape with a figure on a cliff edge against a bright yellow moon or sun.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_cr6uo8l38q5c1.png" alt="cr6uo8l38q5c1.png" class="thumbnail" 
+                             onclick="openFullscreen('night/cr6uo8l38q5c1.png')">
+                        <span class="tooltiptext">Planet Earth viewed from space, showing the night side with city lights visible across Africa, Europe, and the Middle East.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0219.png" alt="0219.png" class="thumbnail" 
+                             onclick="openFullscreen('night/0219.png')">
+                        <span class="tooltiptext">A misty bamboo forest at night with silhouettes against a blue twilight backdrop.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallhaven-o3z85l.png" alt="wallhaven-o3z85l.png" class="thumbnail" 
+                             onclick="openFullscreen('night/wallhaven-o3z85l.png')">
+                        <span class="tooltiptext">A night landscape of mountain silhouettes under a full moon, possibly in a mountain range though the specific location cannot be definitively identified.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png" alt="japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png" class="thumbnail" 
+                         onclick="openFullscreen('night/japanese-landscape-3840x2160-v0-dvl4k1ofpw2c1.png')">
+                    
+                    <img src="thumbnails/thumb_ibm_upscayl_2x_4xNomos8kSC.png" alt="ibm_upscayl_2x_4xNomos8kSC.png" class="thumbnail" 
+                         onclick="openFullscreen('night/ibm_upscayl_2x_4xNomos8kSC.png')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_wallpaper2.png" alt="wallpaper2.png" class="thumbnail" 
+                             onclick="openFullscreen('night/wallpaper2.png')">
+                        <span class="tooltiptext">Mount Annapurna in the Himalayas of Nepal captured at night with snow-capped peaks against a starry sky.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_y5gclzqmwq0a1.png" alt="y5gclzqmwq0a1.png" class="thumbnail" 
+                             onclick="openFullscreen('night/y5gclzqmwq0a1.png')">
+                        <span class="tooltiptext">Mystery Shack from the animated series Gravity Falls.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_6un09w6p0pn91.png" alt="6un09w6p0pn91.png" class="thumbnail" 
+                             onclick="openFullscreen('night/6un09w6p0pn91.png')">
+                        <span class="tooltiptext">A cosmic nebula with a black hole or dark void surrounded by colorful gas clouds in deep space.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_0110.png" alt="0110.png" class="thumbnail" 
+                             onclick="openFullscreen('night/0110.png')">
+                        <span class="tooltiptext">A snow-covered residential street at night illuminated by a single streetlamp in what appears to be a suburban neighborhood.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_alnv82qwl2f31-1134210900.webp" alt="alnv82qwl2f31-1134210900.webp" class="thumbnail" 
+                         onclick="openFullscreen('night/alnv82qwl2f31-1134210900.webp')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_00qdvcot7hjb1.webp" alt="00qdvcot7hjb1.webp" class="thumbnail" 
+                             onclick="openFullscreen('night/00qdvcot7hjb1.webp')">
+                        <span class="tooltiptext">Aerial nighttime view of a major urban city, possibly New York City, with a dense grid of illuminated buildings and streets.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_iss071e002844~orig.jpeg" alt="iss071e002844~orig.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('night/iss071e002844~orig.jpeg')">
+                    
+                    <img src="thumbnails/thumb_wk3esbn1dq1f1.jpeg" alt="wk3esbn1dq1f1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('night/wk3esbn1dq1f1.jpeg')">
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_9k2y40rho1bc1.jpeg" alt="9k2y40rho1bc1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('night/9k2y40rho1bc1.jpeg')">
+                        <span class="tooltiptext">This is a panoramic view of the Milky Way galaxy arching over a desert landscape, likely in the southwestern United States.</span>
+                    </div>
+                    
+                    <div class="tooltip">
+                        <img src="thumbnails/thumb_bhsjy59nkahf1.jpeg" alt="bhsjy59nkahf1.jpeg" class="thumbnail" 
+                             onclick="openFullscreen('night/bhsjy59nkahf1.jpeg')">
+                        <span class="tooltiptext">Waterton Lakes National Park in Alberta, Canada, with the Milky Way visible over the mountains.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_2tgf4y6488ld1.jpeg" alt="2tgf4y6488ld1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('night/2tgf4y6488ld1.jpeg')">
+                    </div><h2>Midnight</h2><div class="gallery">
+                    <img src="thumbnails/thumb_Almost to Shackleton 4k.jpg" alt="Almost to Shackleton 4k.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/Almost to Shackleton 4k.jpg')">
+                    
+                    <img src="thumbnails/thumb_wallpaperflare.com_wallpaper.jpg" alt="wallpaperflare.com_wallpaper.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/wallpaperflare.com_wallpaper.jpg')">
+                    
+                    <img src="thumbnails/thumb_586388.jpg" alt="586388.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/586388.jpg')">
+                    
+                    <img src="thumbnails/thumb_509987.jpg" alt="509987.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/509987.jpg')">
+                    
+                    <img src="thumbnails/thumb_551537.jpg" alt="551537.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/551537.jpg')">
+                    
+                    <img src="thumbnails/thumb_space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg" alt="space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/space-7680x4320-8k-wallpaper-lava-4k-5k-live-wallpaper-android-12769.jpg')">
+                    
+                    <img src="thumbnails/thumb_893848.png" alt="893848.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/893848.png')">
+                    
+                    <img src="thumbnails/thumb_1245403.png" alt="1245403.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/1245403.png')">
+                    
+                    <img src="thumbnails/thumb_976156.png" alt="976156.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/976156.png')">
+                    
+                    <img src="thumbnails/thumb_utuqha24u2dd1.png" alt="utuqha24u2dd1.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/utuqha24u2dd1.png')">
+                    
+                    <img src="thumbnails/thumb_677357.png" alt="677357.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/677357.png')">
+                    
+                    <img src="thumbnails/thumb_qetzip92de2d1.png" alt="qetzip92de2d1.png" class="thumbnail" 
+                         onclick="openFullscreen('midnight/qetzip92de2d1.png')">
+                    
+                    <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp" class="thumbnail" 
+                         onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-0u37l466gcvc1.webp')">
+                    
+                    <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp" class="thumbnail" 
+                         onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-8eh36756gcvc1.webp')">
+                    
+                    <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp" class="thumbnail" 
+                         onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-3bweu566gcvc1.webp')">
+                    
+                    <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp" class="thumbnail" 
+                         onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-idxt4566gcvc1.webp')">
+                    
+                    <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp" class="thumbnail" 
+                         onclick="openFullscreen('midnight/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-a6zt9w46gcvc1.webp')">
+                    
+                    <img src="thumbnails/thumb_uhmtqleyl2sd1.jpeg" alt="uhmtqleyl2sd1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/uhmtqleyl2sd1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_k69ix76mc38d1.jpeg" alt="k69ix76mc38d1.jpeg" class="thumbnail" 
+                         onclick="openFullscreen('midnight/k69ix76mc38d1.jpeg')">
+                    </div></div><div id="verticalGallery" class="gallery-container"><h2>Morning</h2><div class="gallery">
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_a-few-good-ones-i-found-v0-eirh1m5wagse1.jpg" alt="a-few-good-ones-i-found-v0-eirh1m5wagse1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/a-few-good-ones-i-found-v0-eirh1m5wagse1.jpg')">
+                        <span class="tooltiptext">A deciduous forest canopy viewed from below a tall beech or maple tree.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_4k nature.jpg" alt="4k nature.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/morning/4k nature.jpg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.jpg')">
+                        <span class="tooltiptext">Night sky with visible Milky Way over a mountain lake, likely in a dark sky reserve or national park.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_m9qyrrk1bhpe1.png" alt="m9qyrrk1bhpe1.png" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/m9qyrrk1bhpe1.png')">
+                        <span class="tooltiptext">Prayer flag fluttering against the backdrop of a snow-capped peak in the Himalayan mountain range.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_wpdjlkgfkktd1.png" alt="wpdjlkgfkktd1.png" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/wpdjlkgfkktd1.png')">
+                        <span class="tooltiptext">A canal in Uppsala, Sweden, with its distinctive red bridge spanning the waterway.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_cnjotgj448mb1.png" alt="cnjotgj448mb1.png" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/cnjotgj448mb1.png')">
+                        <span class="tooltiptext">Turquoise and brown stained wooden planks forming a decorative surface.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_itap-of-the-sunrise-from-beacon-rock-washington-v0-efd5eq3bmfmf1.webp" alt="itap-of-the-sunrise-from-beacon-rock-washington-v0-efd5eq3bmfmf1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/itap-of-the-sunrise-from-beacon-rock-washington-v0-efd5eq3bmfmf1.webp')">
+                        <span class="tooltiptext">Great Smoky Mountains National Park at dawn with fog settling in the valley.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_itap-of-bryce-canyon-national-park-at-sunrise-v0-sld1np1v18kf1.webp" alt="itap-of-bryce-canyon-national-park-at-sunrise-v0-sld1np1v18kf1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/itap-of-bryce-canyon-national-park-at-sunrise-v0-sld1np1v18kf1.webp')">
+                        <span class="tooltiptext">Bryce Canyon National Park in Utah with its distinctive orange hoodoos illuminated by sunset light.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" alt="my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/my-4k-wallpaper-dump-from-years-of-collecting-enjoy-v0-qq3e5j56gcvc1.webp')">
+                        <span class="tooltiptext">Night sky with visible Milky Way over a mountain lake, likely in a dark sky reserve or national park.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_a-few-good-ones-i-found-v0-eirh1m5wagse1.webp" alt="a-few-good-ones-i-found-v0-eirh1m5wagse1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/a-few-good-ones-i-found-v0-eirh1m5wagse1.webp')">
+                        <span class="tooltiptext">A deciduous forest canopy viewed from below a tall beech or maple tree.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_itap-of-the-appalachian-trail-v0-3fm5mtx9eydf1.webp" alt="itap-of-the-appalachian-trail-v0-3fm5mtx9eydf1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/itap-of-the-appalachian-trail-v0-3fm5mtx9eydf1.webp')">
+                        <span class="tooltiptext">A misty autumn forest trail with sunbeams filtering through golden foliage.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_5le1mzpp5ced1.jpeg" alt="5le1mzpp5ced1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/5le1mzpp5ced1.jpeg')">
+                        <span class="tooltiptext">Coastal sunset view with mountains in the distance, possibly along the Mediterranean Sea or a similar coastal region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_8gyz91jb0wgf1.jpeg" alt="8gyz91jb0wgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/8gyz91jb0wgf1.jpeg')">
+                        <span class="tooltiptext">Rural railway station in the Carpathian Mountains region of Romania.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_a16bkzzdta7c1.jpeg" alt="a16bkzzdta7c1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/a16bkzzdta7c1.jpeg')">
+                        <span class="tooltiptext">A forest path illuminated by golden autumn sunlight filtering through yellow-leaved trees.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_txz084cswqjf1.jpeg" alt="txz084cswqjf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/txz084cswqjf1.jpeg')">
+                        <span class="tooltiptext">A winding mountain road cutting through dense forest, possibly in a temperate rainforest region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_efd5eq3bmfmf1.jpeg" alt="efd5eq3bmfmf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/efd5eq3bmfmf1.jpeg')">
+                        <span class="tooltiptext">Columbia River Gorge in Oregon with morning fog settling between forested mountains.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_kths3nz5xckf1.jpeg" alt="kths3nz5xckf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/kths3nz5xckf1.jpeg')">
+                        <span class="tooltiptext">Glenfinnan Viaduct in the Scottish Highlands with the Jacobite steam train crossing.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_8lty8jtnd8oe1.jpeg" alt="8lty8jtnd8oe1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/8lty8jtnd8oe1.jpeg')">
+                        <span class="tooltiptext">Rural countryside with a log cabin nestled among forests and agricultural fields in the American Midwest.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_fq0dwcuxiaof1.jpeg" alt="fq0dwcuxiaof1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/morning/fq0dwcuxiaof1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_3sso3csbvvnd1.jpeg" alt="3sso3csbvvnd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/3sso3csbvvnd1.jpeg')">
+                        <span class="tooltiptext">Creeping fig vines growing on a wooden wall or fence.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_u3kh6ohbuyif1.jpeg" alt="u3kh6ohbuyif1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/u3kh6ohbuyif1.jpeg')">
+                        <span class="tooltiptext">Lauterbrunnen Valley in Switzerland with the Jungfrau mountain in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_x6ivcn90hvgf1.jpeg" alt="x6ivcn90hvgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/x6ivcn90hvgf1.jpeg')">
+                        <span class="tooltiptext">Misty coniferous forest in the Pacific Northwest, likely Olympic National Park or Mount Rainier National Park.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_mrfxz0lbself1.jpeg" alt="mrfxz0lbself1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/mrfxz0lbself1.jpeg')">
+                        <span class="tooltiptext">Railroad tracks cutting through a forested area in the American Southeast, likely Georgia or South Carolina, under a dramatic orange sunset sky.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_0vwtnypb1s0f1.jpeg" alt="0vwtnypb1s0f1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/0vwtnypb1s0f1.jpeg')">
+                        <span class="tooltiptext">Misty forest trail with a small stream in a temperate rainforest, possibly in the Pacific Northwest or Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_8ynvsudpaxdf1.jpeg" alt="8ynvsudpaxdf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/8ynvsudpaxdf1.jpeg')">
+                        <span class="tooltiptext">Misty forest path in an Appalachian woodland, possibly in the Great Smoky Mountains.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_nybfiueb8hhf1.jpeg" alt="nybfiueb8hhf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/nybfiueb8hhf1.jpeg')">
+                        <span class="tooltiptext">Misty forest trail with tall trees creating a foggy corridor, likely in a temperate woodland region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_j630qg29rpif1.jpeg" alt="j630qg29rpif1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/j630qg29rpif1.jpeg')">
+                        <span class="tooltiptext">Misty eucalyptus forest road in an Australian mountain range, possibly the Blue Mountains or Dandenong Ranges.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_qz2i5479jrmf1.jpeg" alt="qz2i5479jrmf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/qz2i5479jrmf1.jpeg')">
+                        <span class="tooltiptext">Swiss Alps near Interlaken, likely in the Bernese Oberland region of Switzerland.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_lvfih36ooikf1.jpeg" alt="lvfih36ooikf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/lvfih36ooikf1.jpeg')">
+                        <span class="tooltiptext">Misty mountain landscape in the Western Ghats of Kerala, India, featuring traditional tile-roofed structures amid tea plantations.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_7mjiv1atp8lf1.jpeg" alt="7mjiv1atp8lf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/7mjiv1atp8lf1.jpeg')">
+                        <span class="tooltiptext">A wooden boardwalk trail through a dense tropical rainforest, possibly in the Amazon Basin.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_0tgcu593ahgf1.jpeg" alt="0tgcu593ahgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/0tgcu593ahgf1.jpeg')">
+                        <span class="tooltiptext">A wooden cabin nestled in a forested valley in Norway, likely in a fjord region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_rdlmzunojeff1.jpeg" alt="rdlmzunojeff1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/rdlmzunojeff1.jpeg')">
+                        <span class="tooltiptext">A serene forest trail lined with tall trees in what appears to be a temperate woodland area.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_5bfw7p0r76kf1.jpeg" alt="5bfw7p0r76kf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/5bfw7p0r76kf1.jpeg')">
+                        <span class="tooltiptext">A serene forest waterfall in what appears to be a temperate woodland nature reserve.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_11mrewqzlfof1.jpeg" alt="11mrewqzlfof1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/morning/11mrewqzlfof1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_y2nlc1jw3wkf1.jpeg" alt="y2nlc1jw3wkf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/y2nlc1jw3wkf1.jpeg')">
+                        <span class="tooltiptext">A winding forest road with moss growing along the yellow center line illuminated by sunlight filtering through dense trees.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_qjxbx0m23kkf1.jpeg" alt="qjxbx0m23kkf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/qjxbx0m23kkf1.jpeg')">
+                        <span class="tooltiptext">Railroad tracks stretching through rural Australian outback with eucalyptus trees lining the route.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_1c1be6exn1mf1.jpeg" alt="1c1be6exn1mf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/1c1be6exn1mf1.jpeg')">
+                        <span class="tooltiptext">Railroad crossing in a rural area with tracks stretching into the distance between forested areas.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_hljesv3nugkf1.jpeg" alt="hljesv3nugkf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/hljesv3nugkf1.jpeg')">
+                        <span class="tooltiptext">Misty eucalyptus forest with tree ferns in Dandenong Ranges National Park, Victoria, Australia.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_0y2q8f4vd9gf1.jpeg" alt="0y2q8f4vd9gf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/0y2q8f4vd9gf1.jpeg')">
+                        <span class="tooltiptext">Misty tropical rainforest with silhouettes of primates perched on tree branches.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_3la4bfeuinjf1.jpeg" alt="3la4bfeuinjf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/3la4bfeuinjf1.jpeg')">
+                        <span class="tooltiptext">Zermatt, Switzerland with the iconic Matterhorn mountain in the background.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_b6b7s7z7fzoe1.jpeg" alt="b6b7s7z7fzoe1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/b6b7s7z7fzoe1.jpeg')">
+                        <span class="tooltiptext">Sunset over a rural landscape with acacia trees and a palm tree, likely in a subtropical or tropical savanna region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_ojgyr5bwfnlf1.jpeg" alt="ojgyr5bwfnlf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/ojgyr5bwfnlf1.jpeg')">
+                        <span class="tooltiptext">St. Martin-in-the-Fields Church in Trafalgar Square, London, with its distinctive spire and memorial pathway.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_g6kpzwvdhhcd1.jpeg" alt="g6kpzwvdhhcd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/g6kpzwvdhhcd1.jpeg')">
+                        <span class="tooltiptext">Himalayan mountain range, possibly in the Ladakh or Spiti Valley region of northern India.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_n1qjbym4kcmf1.jpeg" alt="n1qjbym4kcmf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/n1qjbym4kcmf1.jpeg')">
+                        <span class="tooltiptext">Tatra Mountains in Poland with traditional wooden huts surrounded by purple wildflowers.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_83sn2lfeozme1.jpeg" alt="83sn2lfeozme1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/83sn2lfeozme1.jpeg')">
+                        <span class="tooltiptext">Central Park in New Delhi, India, featuring a tall flagpole with the Indian national flag.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_t1oq3y5vmt7f1.jpeg" alt="t1oq3y5vmt7f1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/t1oq3y5vmt7f1.jpeg')">
+                        <span class="tooltiptext">A wet airport tarmac with a small aircraft under cloudy skies, likely at a regional or municipal airport.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_7yz823xdkmmd1.jpeg" alt="7yz823xdkmmd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/7yz823xdkmmd1.jpeg')">
+                        <span class="tooltiptext">Yellow airplane with &quot;STAY FREE&quot; text flying over a dense forest with mist and a river.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_n44524q3y1lf1.jpeg" alt="n44524q3y1lf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/n44524q3y1lf1.jpeg')">
+                        <span class="tooltiptext">An electric train on railway tracks during sunset, likely part of a European regional rail network.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_t8mjnp3687td1.jpeg" alt="t8mjnp3687td1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/t8mjnp3687td1.jpeg')">
+                        <span class="tooltiptext">Amanita muscaria mushroom growing in a forest floor ecosystem.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_jvc73lnf74jf1.jpeg" alt="jvc73lnf74jf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/jvc73lnf74jf1.jpeg')">
+                        <span class="tooltiptext">Lake Garda in northern Italy with its distinctive limestone cliffs and Mediterranean vegetation.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_zb65i2iz3bjf1.jpeg" alt="zb65i2iz3bjf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/zb65i2iz3bjf1.jpeg')">
+                        <span class="tooltiptext">Alpine valley village in the Swiss Alps, likely in the canton of Graubünden or Valais.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_r3b4dz0xbgkf1.jpeg" alt="r3b4dz0xbgkf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/morning/r3b4dz0xbgkf1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_o8taffh947nd1.jpeg" alt="o8taffh947nd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/morning/o8taffh947nd1.jpeg')">
+                        <span class="tooltiptext">St. Charles Avenue streetcar line in New Orleans on a foggy morning.</span>
+                    </div>
+                    </div><h2>Day</h2><div class="gallery">
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_road-to-nowhere-v0-05gsw2lh0dod1.jpg" alt="road-to-nowhere-v0-05gsw2lh0dod1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/road-to-nowhere-v0-05gsw2lh0dod1.jpg')">
+                        <span class="tooltiptext">Mount Damavand in Iran with its distinctive snow-capped peak visible from a long straight road.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_6x7ohznq2f6d1.jpg" alt="6x7ohznq2f6d1.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/6x7ohznq2f6d1.jpg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_road-to-nowhere-v0-05gsw2lh0dod1.webp" alt="road-to-nowhere-v0-05gsw2lh0dod1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/road-to-nowhere-v0-05gsw2lh0dod1.webp')">
+                        <span class="tooltiptext">Mount Damavand in Iran with its distinctive snow-capped peak visible from a long straight road.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_birch-trees-in-fall-v0-1xv6h2ibyscd1.webp" alt="birch-trees-in-fall-v0-1xv6h2ibyscd1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/birch-trees-in-fall-v0-1xv6h2ibyscd1.webp')">
+                    
+                    <img src="thumbnails/thumb_birch-trees-in-fall-v0-eticw4ibyscd1.webp" alt="birch-trees-in-fall-v0-eticw4ibyscd1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/birch-trees-in-fall-v0-eticw4ibyscd1.webp')">
+                    
+                    <img src="thumbnails/thumb_6xi31wzo2d3d1.jpeg" alt="6xi31wzo2d3d1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/6xi31wzo2d3d1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_kjn14yssmjgf1.jpeg" alt="kjn14yssmjgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/kjn14yssmjgf1.jpeg')">
+                        <span class="tooltiptext">Hiking trail in Triglav National Park, Slovenia, with the Julian Alps in the background.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_yhxc2z7aa6lf1.jpeg" alt="yhxc2z7aa6lf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/yhxc2z7aa6lf1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_G0nS3Qq.jpeg" alt="G0nS3Qq.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/G0nS3Qq.jpeg')">
+                        <span class="tooltiptext">Rocky mountainous terrain with sparse vegetation, likely in a Mediterranean or arid climate region.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_b4vyab65vbwd1.jpeg" alt="b4vyab65vbwd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/b4vyab65vbwd1.jpeg')">
+                        <span class="tooltiptext">Dew-covered holly leaves in a temperate forest environment.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_gm5isfixt5hf1.jpeg" alt="gm5isfixt5hf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/gm5isfixt5hf1.jpeg')">
+                        <span class="tooltiptext">Avenue of the Giants in Humboldt Redwoods State Park, California.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_o619y2rden7d1.jpeg" alt="o619y2rden7d1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/o619y2rden7d1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_4ogkoypx3qjf1.jpeg" alt="4ogkoypx3qjf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/4ogkoypx3qjf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_6jcirz7gyimf1.jpeg" alt="6jcirz7gyimf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/day/6jcirz7gyimf1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_bsq02cgqjuif1.jpeg" alt="bsq02cgqjuif1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/bsq02cgqjuif1.jpeg')">
+                        <span class="tooltiptext">Horseshoe Bend on the Colorado River near Page, Arizona.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_umyivf12ljgf1.jpeg" alt="umyivf12ljgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/umyivf12ljgf1.jpeg')">
+                        <span class="tooltiptext">Rural railway tracks with utility poles along a curved section of line.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_v77ez8346ote1.jpeg" alt="v77ez8346ote1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/v77ez8346ote1.jpeg')">
+                        <span class="tooltiptext">A collection of polished blue and purple gemstones, likely lapis lazuli, amethyst, and sodalite.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_niqgwg17gajf1.jpeg" alt="niqgwg17gajf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/day/niqgwg17gajf1.jpeg')">
+                        <span class="tooltiptext">Brick archways of Fort Jefferson in Dry Tortugas National Park, Florida.</span>
+                    </div>
+                    </div><h2>Evening</h2><div class="gallery">
+                    <img src="thumbnails/thumb_m4dsda9l90ba1.jpg" alt="m4dsda9l90ba1.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/m4dsda9l90ba1.jpg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_1fwbrwr0dszc1.jpg" alt="1fwbrwr0dszc1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/1fwbrwr0dszc1.jpg')">
+                        <span class="tooltiptext">Acacia tree on the savanna plains of Serengeti National Park, Tanzania, at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_9yqb663hfu171.jpg" alt="9yqb663hfu171.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/9yqb663hfu171.jpg')">
+                        <span class="tooltiptext">Midtown Manhattan skyline in New York City at sunset with skyscrapers framing a busy avenue.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_wooden-table-coffee.jpg" alt="wooden-table-coffee.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/wooden-table-coffee.jpg')">
+                        <span class="tooltiptext">A specialty coffee shop serving a latte with latte art, espresso shot, and water on a wooden serving board.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_another-wallpaper-dump-v0-5dk3nji13jfd1.jpg" alt="another-wallpaper-dump-v0-5dk3nji13jfd1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/another-wallpaper-dump-v0-5dk3nji13jfd1.jpg')">
+                        <span class="tooltiptext">A tropical beach in Sri Lanka, likely Unawatuna or Mirissa, with characteristic leaning palm trees at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_i474qy0t0qad1.jpg" alt="i474qy0t0qad1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/i474qy0t0qad1.jpg')">
+                        <span class="tooltiptext">A winding mountain road cutting through dense forest, possibly in a national park or mountain range.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg" alt="lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/lake-erie-sunset-with-lighthouse-5472x-3648-v0-1eyj6ngx78gc1.jpg')">
+                        <span class="tooltiptext">Sunset over a lighthouse on a breakwater or pier extending into a large body of water.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.jpg" alt="this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.jpg')">
+                        <span class="tooltiptext">Indian Railways train station platform at sunset with train number 104822 visible.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_i474qy0t0qad1.webp" alt="i474qy0t0qad1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/i474qy0t0qad1.webp')">
+                        <span class="tooltiptext">A winding mountain road cutting through dense forest, possibly in a national park or mountain range.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_9yqb663hfu171.webp" alt="9yqb663hfu171.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/9yqb663hfu171.webp')">
+                        <span class="tooltiptext">Midtown Manhattan skyline in New York City at sunset with skyscrapers framing a busy avenue.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_0rlovs31zf381.webp" alt="0rlovs31zf381.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/0rlovs31zf381.webp')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_another-wallpaper-dump-v0-5dk3nji13jfd1.webp" alt="another-wallpaper-dump-v0-5dk3nji13jfd1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/another-wallpaper-dump-v0-5dk3nji13jfd1.webp')">
+                        <span class="tooltiptext">A tropical beach in Sri Lanka, likely Unawatuna or Mirissa, with characteristic leaning palm trees at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp" alt="this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/this-is-my-favourite-of-august-month-v0-yydvs8oy82kd1.webp')">
+                        <span class="tooltiptext">Indian Railways train station platform at sunset with train number 104822 visible.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_iywwjqjyxajf1.jpeg" alt="iywwjqjyxajf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/iywwjqjyxajf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_huz99nyo7mte1.jpeg" alt="huz99nyo7mte1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/huz99nyo7mte1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_05dxmnyie9bc1.jpeg" alt="05dxmnyie9bc1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/05dxmnyie9bc1.jpeg')">
+                        <span class="tooltiptext">A suspension footbridge under dramatic stormy skies, possibly the Humber Bay Arch Bridge in Toronto or a similar pedestrian bridge.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_enxankhpcn9f1.jpeg" alt="enxankhpcn9f1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/enxankhpcn9f1.jpeg')">
+                        <span class="tooltiptext">Umaid Bhawan Palace in Jodhpur, India, with an Indian Air Force fighter jet in the foreground.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_h539lim36nmf1.jpeg" alt="h539lim36nmf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/h539lim36nmf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_ydju38ncd1cd1.jpeg" alt="ydju38ncd1cd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/ydju38ncd1cd1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_ri30gdehevbd1.jpeg" alt="ri30gdehevbd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/ri30gdehevbd1.jpeg')">
+                        <span class="tooltiptext">An aircraft flying over a coral reef formation in tropical waters, possibly in the Great Barrier Reef or Caribbean Sea.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_0za5bfaswsif1.jpeg" alt="0za5bfaswsif1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/0za5bfaswsif1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_jfqqdvf2r6rd1.jpeg" alt="jfqqdvf2r6rd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/jfqqdvf2r6rd1.jpeg')">
+                        <span class="tooltiptext">Empire State Building in Midtown Manhattan, New York City, illuminated at sunset with its reflection in a rain-soaked street.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_toodk7opsufd1.jpeg" alt="toodk7opsufd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/toodk7opsufd1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_zzuflqywsddd1.jpeg" alt="zzuflqywsddd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/zzuflqywsddd1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_zlo27yroufzd1.jpeg" alt="zlo27yroufzd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/zlo27yroufzd1.jpeg')">
+                        <span class="tooltiptext">Preikestolen (Pulpit Rock) cliff in Lysefjord, Norway.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_GiR-ImuawAA9shh.jpeg" alt="GiR-ImuawAA9shh.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/GiR-ImuawAA9shh.jpeg')">
+                        <span class="tooltiptext">ISRO's GSLV rocket on the launch pad at Satish Dhawan Space Centre in Sriharikota, India.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_4zog8cvpwepe1.jpeg" alt="4zog8cvpwepe1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/4zog8cvpwepe1.jpeg')">
+                        <span class="tooltiptext">Calm lake or pond at sunset with perfect reflections of dramatic clouds and silhouetted trees on the horizon.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_og2inh8rn7jf1.jpeg" alt="og2inh8rn7jf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/og2inh8rn7jf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_z30afyagfngd1.jpeg" alt="z30afyagfngd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/z30afyagfngd1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_ffcs71cwudgd1.jpeg" alt="ffcs71cwudgd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/ffcs71cwudgd1.jpeg')">
+                        <span class="tooltiptext">Coastal highway with dramatic crepuscular rays breaking through clouds over the ocean at sunset.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_1ff9jp9t3dnd1.jpeg" alt="1ff9jp9t3dnd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/1ff9jp9t3dnd1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_okd89qwhx6if1.jpeg" alt="okd89qwhx6if1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/okd89qwhx6if1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_kxbggeqegjjf1.jpeg" alt="kxbggeqegjjf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/kxbggeqegjjf1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_cayqr7ooyjvd1.jpeg" alt="cayqr7ooyjvd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/cayqr7ooyjvd1.jpeg')">
+                        <span class="tooltiptext">Bandra-Worli Sea Link in Mumbai, India at sunset.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_e9sskwf4h7hf1.jpeg" alt="e9sskwf4h7hf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/e9sskwf4h7hf1.jpeg')">
+                        <span class="tooltiptext">A misty country path in a forested area at sunrise or sunset, possibly in Scandinavia or the Pacific Northwest.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_86rqy9fm1xcf1.jpeg" alt="86rqy9fm1xcf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/86rqy9fm1xcf1.jpeg')">
+                        <span class="tooltiptext">Church of St. Primoz near Jamnik, Slovenia.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_kaw6cml01rec1.jpeg" alt="kaw6cml01rec1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/kaw6cml01rec1.jpeg')">
+                        <span class="tooltiptext">Urban street in Japan with Japanese signage at sunset, likely in a city near mountains.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_d31xn0xp6v6f1.jpeg" alt="d31xn0xp6v6f1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/d31xn0xp6v6f1.jpeg')">
+                        <span class="tooltiptext">An airport tarmac at sunset with a Qatar Airways aircraft parked on the apron.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_umogykfrceof1.jpeg" alt="umogykfrceof1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/umogykfrceof1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_7zm41v2y45lf1.jpeg" alt="7zm41v2y45lf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/7zm41v2y45lf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_o8w988tf62lf1.jpeg" alt="o8w988tf62lf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/o8w988tf62lf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_kq0ram6zm6ze1.jpeg" alt="kq0ram6zm6ze1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/kq0ram6zm6ze1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_qyo8z14ydbgd1.jpeg" alt="qyo8z14ydbgd1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/qyo8z14ydbgd1.jpeg')">
+                        <span class="tooltiptext">A fishing vessel on open water at sunset with dramatic orange-hued skies.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_z9ktcrq2bkbf1 (1).jpeg" alt="z9ktcrq2bkbf1 (1).jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/evening/z9ktcrq2bkbf1 (1).jpeg')">
+                        <span class="tooltiptext">Railroad tracks with overhead catenary support arches at sunset, likely part of an electrified rail corridor.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_aeau24im7znf1.jpeg" alt="aeau24im7znf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/aeau24im7znf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_mgqzh0eab7of1.jpeg" alt="mgqzh0eab7of1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/mgqzh0eab7of1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_bisabgbeidjf1.jpeg" alt="bisabgbeidjf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/bisabgbeidjf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_lh3uw3h13nqe1.jpeg" alt="lh3uw3h13nqe1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/lh3uw3h13nqe1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_x12pr1c55vxd1.jpeg" alt="x12pr1c55vxd1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/evening/x12pr1c55vxd1.jpeg')">
+                    </div><h2>Night</h2><div class="gallery">
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_small-memory-evening-8k-5o.jpg" alt="small-memory-evening-8k-5o.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/small-memory-evening-8k-5o.jpg')">
+                        <span class="tooltiptext">Stylized digital artwork of a night forest landscape with a river and waterfall under a starry sky.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_xk7ph8t6yza81.jpg" alt="xk7ph8t6yza81.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/xk7ph8t6yza81.jpg')">
+                        <span class="tooltiptext">Artistic illustration of outer space showing an astronaut on a spacewalk near a space station with Earth in the background.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_bFPNdFU.jpg" alt="bFPNdFU.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/bFPNdFU.jpg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_wall-dump-v0-zlqzk5whxh7d1.jpg" alt="wall-dump-v0-zlqzk5whxh7d1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/wall-dump-v0-zlqzk5whxh7d1.jpg')">
+                        <span class="tooltiptext">A dark urban street in a financial district of a major city, possibly New York or Chicago.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_science-wallpapers-v0-8fmr7ia6v5pd1.jpg" alt="science-wallpapers-v0-8fmr7ia6v5pd1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/science-wallpapers-v0-8fmr7ia6v5pd1.jpg')">
+                        <span class="tooltiptext">A blackboard or digital display filled with complex mathematical equations, graphs, and scientific diagrams.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_cgw1x4pzceoa1.jpg" alt="cgw1x4pzceoa1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/cgw1x4pzceoa1.jpg')">
+                        <span class="tooltiptext">Mount Hood in Oregon under a starry night sky.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_enjoy-guys-v0-xj1ai6b287hd1.jpg" alt="enjoy-guys-v0-xj1ai6b287hd1.jpg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/enjoy-guys-v0-xj1ai6b287hd1.jpg')">
+                        <span class="tooltiptext">Bamboo forest with silhouettes against a dark green background.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_cr6uo8l38q5c1.png" alt="cr6uo8l38q5c1.png" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/cr6uo8l38q5c1.png')">
+                        <span class="tooltiptext">Earth viewed from space showing city lights across Asia and Australia.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_6un09w6p0pn91.png" alt="6un09w6p0pn91.png" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/6un09w6p0pn91.png')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_science-wallpapers-v0-8fmr7ia6v5pd1.webp" alt="science-wallpapers-v0-8fmr7ia6v5pd1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/science-wallpapers-v0-8fmr7ia6v5pd1.webp')">
+                        <span class="tooltiptext">A blackboard or digital display filled with complex mathematical equations, graphs, and scientific diagrams.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_enjoy-guys-v0-604opus187hd1.webp" alt="enjoy-guys-v0-604opus187hd1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/enjoy-guys-v0-604opus187hd1.webp')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_wall-dump-v0-zlqzk5whxh7d1.webp" alt="wall-dump-v0-zlqzk5whxh7d1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/wall-dump-v0-zlqzk5whxh7d1.webp')">
+                        <span class="tooltiptext">A dark urban street in a financial district of a major city, possibly New York or Chicago.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_mountain-landscapes-4k-v0-6sc28s2jyije1.webp" alt="mountain-landscapes-4k-v0-6sc28s2jyije1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/mountain-landscapes-4k-v0-6sc28s2jyije1.webp')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_enjoy-guys-v0-xj1ai6b287hd1.webp" alt="enjoy-guys-v0-xj1ai6b287hd1.webp" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/enjoy-guys-v0-xj1ai6b287hd1.webp')">
+                        <span class="tooltiptext">Bamboo forest with silhouettes against a dark green background.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp" alt="dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/dark-blue-wallpaper-v0-f52v6ocqz8jd1.webp')">
+                    
+                    <img src="thumbnails/thumb_favourites-v0-5ub6c8d5gagd1.webp" alt="favourites-v0-5ub6c8d5gagd1.webp" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/favourites-v0-5ub6c8d5gagd1.webp')">
+                    
+                    <img src="thumbnails/thumb_rhbjybrmssod1.jpeg" alt="rhbjybrmssod1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/rhbjybrmssod1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_7ewlypsfo3ke1.jpeg" alt="7ewlypsfo3ke1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/7ewlypsfo3ke1.jpeg')">
+                        <span class="tooltiptext">Sand dunes in the Sahara Desert under the Milky Way galaxy.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_4bnh5l9ssugf1.jpeg" alt="4bnh5l9ssugf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/4bnh5l9ssugf1.jpeg')">
+                        <span class="tooltiptext">Arno River flowing through Florence, Italy at sunset with historic buildings lining its banks.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_t4i9g2g7lmgf1.jpeg" alt="t4i9g2g7lmgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/t4i9g2g7lmgf1.jpeg')">
+                        <span class="tooltiptext">Tokyo Tower reflected in an office building at night in Tokyo, Japan.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_chwz1zy1swgf1.jpeg" alt="chwz1zy1swgf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/chwz1zy1swgf1.jpeg')">
+                        <span class="tooltiptext">Basilica of Sacré-Cœur in Montmartre, Paris, featuring its iconic apse with golden mosaic and stained glass windows.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_z1v88hgfk30e1.jpeg" alt="z1v88hgfk30e1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/z1v88hgfk30e1.jpeg')">
+                        <span class="tooltiptext">Manhattan skyline in New York City featuring the Empire State Building illuminated at night.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_vjt8bzrjvqif1.jpeg" alt="vjt8bzrjvqif1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/vjt8bzrjvqif1.jpeg')">
+                        <span class="tooltiptext">London skyline at night featuring the London Eye and city buildings.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_mao9n02fcspc1.jpeg" alt="mao9n02fcspc1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/mao9n02fcspc1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_eun3o18w2g5f1.jpeg" alt="eun3o18w2g5f1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/eun3o18w2g5f1.jpeg')">
+                        <span class="tooltiptext">Mount Etna volcano in Sicily, Italy, erupting with glowing lava and ash plume against a dark sky.</span>
+                    </div>
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_a78ak82c8lld1.jpeg" alt="a78ak82c8lld1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/a78ak82c8lld1.jpeg')">
+                        <span class="tooltiptext">A dimly lit vintage-style café or bar with exposed brick walls, wooden floors, and automotive-themed decorations.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_4ivlmhe0gnxe1.jpeg" alt="4ivlmhe0gnxe1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/4ivlmhe0gnxe1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_z7a8k3iemzlf1.jpeg" alt="z7a8k3iemzlf1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/z7a8k3iemzlf1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_83h23u2tpgff1.jpeg" alt="83h23u2tpgff1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/83h23u2tpgff1.jpeg')">
+                    
+                    <img src="thumbnails/thumb_yhjcy3mpaewe1.jpeg" alt="yhjcy3mpaewe1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/night/yhjcy3mpaewe1.jpeg')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_8dt4orsuk9gf1.jpeg" alt="8dt4orsuk9gf1.jpeg" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/night/8dt4orsuk9gf1.jpeg')">
+                        <span class="tooltiptext">Traditional wooden balconied houses in Sighnaghi, Georgia, illuminated at dusk.</span>
+                    </div>
+                    </div><h2>Midnight</h2><div class="gallery">
+                    <img src="thumbnails/thumb_k69ix76mc38d1.jpg" alt="k69ix76mc38d1.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/k69ix76mc38d1.jpg')">
+                    
+                    <img src="thumbnails/thumb_wallpaperflare.com_wallpaper.jpg" alt="wallpaperflare.com_wallpaper.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/wallpaperflare.com_wallpaper.jpg')">
+                    
+                    <img src="thumbnails/thumb_551537.jpg" alt="551537.jpg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/551537.jpg')">
+                    
+                    <img src="thumbnails/thumb_893848.png" alt="893848.png" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/893848.png')">
+                    
+                    <img src="thumbnails/thumb_677357.png" alt="677357.png" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/677357.png')">
+                    
+                    <div class="tooltip vertical">
+                        <img src="thumbnails/thumb_6un09w6p0pn91.png" alt="6un09w6p0pn91.png" class="thumbnail vertical" 
+                             onclick="openFullscreen('vertical/midnight/6un09w6p0pn91.png')">
+                        <span class="tooltiptext">Deep space nebula with colorful cosmic gas clouds and a dark central formation.</span>
+                    </div>
+                    
+                    <img src="thumbnails/thumb_5g05r882s0we1.jpeg" alt="5g05r882s0we1.jpeg" class="thumbnail vertical" 
+                         onclick="openFullscreen('vertical/midnight/5g05r882s0we1.jpeg')">
+                    </div></div>
         <div id="fullscreenView" class="fullscreen">
             <span class="close" onclick="closeFullscreen()">&times;</span>
             <img id="fullscreenImage">
