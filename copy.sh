@@ -1,6 +1,6 @@
-cp -r ~/Pictures/wallpapers/day .
-cp -r ~/Pictures/wallpapers/morning .
-cp -r ~/Pictures/wallpapers/night .
-cp -r ~/Pictures/wallpapers/midnight .
-cp -r ~/Pictures/wallpapers/evening .
-cp -r ~/Pictures/wallpapers/vertical .
+rsync -av --delete ~/Pictures/wallpapers/day/ ./day/
+rsync -av --delete ~/Pictures/wallpapers/morning/ ./morning/
+rsync -av --delete ~/Pictures/wallpapers/night/ ./night/
+rsync -av --delete ~/Pictures/wallpapers/midnight/ ./midnight/
+rsync -av --delete ~/Pictures/wallpapers/evening/ ./evening/
+rsync -av --delete ~/Pictures/wallpapers/vertical/ ./vertical/
